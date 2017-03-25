@@ -11,7 +11,7 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/sakila" userId="root" password="admin">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/rcsdb" userId="root" password="admin">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -31,7 +31,14 @@
         </javaClientGenerator>
         
         <!--生成对应表及类名-->
-        <table tableName="actor" domainObjectName="Actor"
+        <table tableName="contract_overview" domainObjectName="Contract"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">     
+        </table> 
+        <table tableName="gps_overview" domainObjectName="GPSOverview"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

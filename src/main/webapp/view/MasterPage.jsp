@@ -75,114 +75,96 @@
 <body class="">
 
 	<!-- HEADER -->
-	<header id="header">
-		<div id="logo-group">
-			<span id="logo"> <img src="../static/img/logo.png"
-				alt="SmartAdmin">
-			</span> <span id="activity"> <i class="fa fa-user"></i></span>
-
-		</div>
-
-		<!-- pulled right: nav area -->
-		<div class="pull-right">
-
-			<!-- #MOBILE -->
-			<!-- Top menu profile link : this shows only when top menu is active -->
-			<ul id="mobile-profile-img"
-				class="header-dropdown-list hidden-xs padding-5">
-				<li class=""><a href="#"
-					class="dropdown-toggle no-margin userdropdown"
-					data-toggle="dropdown"> <img
-						src="/static/leftmenu/img/avatars/sunny.png" alt="John Doe"
-						class="online" />
-				</a>
-					<ul class="dropdown-menu pull-right">
-						<li><a href="javascript:void(0);"
-							class="padding-10 padding-top-0 padding-bottom-0"><i
-								class="fa fa-cog"></i> Setting</a></li>
-						<li class="divider"></li>
-						<li><a href="profile.html"
-							class="padding-10 padding-top-0 padding-bottom-0"> <i
-								class="fa fa-user"></i> <u>P</u>rofile
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="javascript:void(0);"
-							class="padding-10 padding-top-0 padding-bottom-0"
-							data-action="toggleShortcut"><i class="fa fa-arrow-down"></i>
-								<u>S</u>hortcut</a></li>
-						<li class="divider"></li>
-						<li><a href="javascript:void(0);"
-							class="padding-10 padding-top-0 padding-bottom-0"
-							data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i>全屏</a>
+		<header id="header">
+			<div id="logo-group">
+				<span id="logo"> <img src="../static/img/logo.png" alt="SmartAdmin"></span>
+			</div>
+			<!-- NAVIGATION -->
+			<div class="navbar navbar-default pull-left">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               			<span class="icon-bar"></span>
+                   		<span class="icon-bar"></span>
+           				<span class="icon-bar"></span>
+                	</button>
+				</div>
+				<div class="navbar-collapse collapse navbar-right scroll-me">
+					<ul class="nav navbar-nav ">
+						<li>
+							<a href="dataprofiling.jsp">数据概况</a>
 						</li>
-						<li class="divider"></li>
-						<li><a href="/login"
-							class="padding-10 padding-top-5 padding-bottom-5"
-							data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i>
-								<strong>注销登录</strong></a></li>
-					</ul></li>
-			</ul>
-
-			<!-- logout button -->
-			<div id="logout" class="btn-header transparent pull-right">
-				<span> <a href="/logout" title="注销登录"
-					data-action="userLogout" data-logout-msg="是否注销登录？"><i
-						class="fa fa-sign-out"></i></a>
-				</span>
-			</div>
-			<!-- end logout button -->
-
-			<!-- search mobile button (this is hidden till mobile view port) -->
-			<div id="search-mobile" class="btn-header transparent pull-right">
-				<span> <a href="javascript:void(0)" title="Search"><i
-						class="fa fa-search"></i></a>
-				</span>
-			</div>
-			<!-- end search mobile button -->
-
-			<!-- fullscreen button -->
-			<div id="fullscreen" class="btn-header transparent pull-right">
-				<span> <a href="javascript:void(0);"
-					data-action="launchFullscreen" title="全屏"><i
-						class="fa fa-arrows-alt"></i></a>
-				</span>
-			</div>
-			<!-- end fullscreen button -->
-		</div>
-		<!-- end pulled right: nav area -->
-
-	</header>
-	<!-- END HEADER -->
-
-	<!-- MAIN PANEL -->
-	<div id="mainbar" role="mainbar">
-
-		<!-- NAVIGATION -->
-		<div id="ribbon">
-			<div class="container-fluid">
-				<div class="navbar navbar-default">
-					<div class="container">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle"
-								data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="navbar-collapse collapse navbar-right scroll-me">
-							<ul class="nav navbar-nav ">
-								<li><a href="#home">主页</a></li>
-								<li><a href="#services">菜单1</a></li>
-								<li><a href="#works">菜单2</a></li>
-								<li><a href="#contact">菜单3</a></li>
-							</ul>
-						</div>
-
-					</div>
+						<li>
+							<a href="features.jsp">统计特征</a>
+						</li>
+						<li>
+							<a href="trajectory.jsp">轨迹展示</a>
+						</li>
+						<li>
+							<a href="anomaly-detection.jsp">异常车辆检测</a>
+						</li>
+					</ul>
 				</div>
 			</div>
-		</div>
-		<!-- NAVIGATION -->
+			<!-- NAVIGATION -->
+			<!-- pulled right: nav area -->
+			<div class="pull-right">
+
+				<!-- #MOBILE -->
+				<!-- Top menu profile link : this shows only when top menu is active -->
+				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+					<li class="">
+						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+							<img src="/static/leftmenu/img/avatars/sunny.png" alt="John Doe" class="online" />
+						</a>
+						<ul class="dropdown-menu pull-right">
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i>全屏</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="/login" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong>注销登录</strong></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!-- logout button -->
+				<div id="logout" class="btn-header transparent pull-right">
+					<span> <a href="/logout" title="注销登录" data-action="userLogout" data-logout-msg="是否注销登录？"><i class="fa fa-sign-out"></i></a> </span>
+				</div>
+				<!-- end logout button -->
+
+				<!-- search mobile button (this is hidden till mobile view port) -->
+				<div id="search-mobile" class="btn-header transparent pull-right">
+					<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+				</div>
+				<!-- end search mobile button -->
+
+				<!-- fullscreen button -->
+				<div id="fullscreen" class="btn-header transparent pull-right">
+					<span> <a href="javascript:void(0);" data-action="launchFullscreen" title="全屏"><i class="fa fa-arrows-alt"></i></a> </span>
+				</div>
+				<!-- end fullscreen button -->
+			</div>
+			<!-- end pulled right: nav area -->
+
+		</header>
+		<!-- END HEADER -->
+		
+	<!-- MAIN PANEL -->
+	<div id="mainbar" role="mainbar">
 
 		<!-- MAIN CONTENT -->
 		<div id="content">

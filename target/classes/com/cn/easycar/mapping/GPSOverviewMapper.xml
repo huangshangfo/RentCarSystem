@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.easycar.dao.GPSOverviewMapper">
+  <resultMap id="BaseResultMap" type="com.cn.easycar.model.GPSOverview">
+    <id column="month" jdbcType="VARCHAR" property="month" />
+    <result column="time_vehicle" jdbcType="INTEGER" property="timeVehicle" />
+    <result column="time_gps" jdbcType="INTEGER" property="timeGps" />
+    <result column="short_vehicle" jdbcType="INTEGER" property="shortVehicle" />
+    <result column="short_gps" jdbcType="INTEGER" property="shortGps" />
+    <result column="long_vehicle" jdbcType="INTEGER" property="longVehicle" />
+    <result column="long_gps" jdbcType="INTEGER" property="longGps" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    month, time_vehicle, time_gps, short_vehicle, short_gps, long_vehicle, long_gps
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gps_overview
+    where month = #{month,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from gps_overview
+    where month = #{month,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cn.easycar.model.GPSOverview">
+    insert into gps_overview (month, time_vehicle, time_gps, 
+      short_vehicle, short_gps, long_vehicle, 
+      long_gps)
+    values (#{month,jdbcType=VARCHAR}, #{timeVehicle,jdbcType=INTEGER}, #{timeGps,jdbcType=INTEGER}, 
+      #{shortVehicle,jdbcType=INTEGER}, #{shortGps,jdbcType=INTEGER}, #{longVehicle,jdbcType=INTEGER}, 
+      #{longGps,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.easycar.model.GPSOverview">
+    insert into gps_overview
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="month != null">
+        month,
+      </if>
+      <if test="timeVehicle != null">
+        time_vehicle,
+      </if>
+      <if test="timeGps != null">
+        time_gps,
+      </if>
+      <if test="shortVehicle != null">
+        short_vehicle,
+      </if>
+      <if test="shortGps != null">
+        short_gps,
+      </if>
+      <if test="longVehicle != null">
+        long_vehicle,
+      </if>
+      <if test="longGps != null">
+        long_gps,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="timeVehicle != null">
+        #{timeVehicle,jdbcType=INTEGER},
+      </if>
+      <if test="timeGps != null">
+        #{timeGps,jdbcType=INTEGER},
+      </if>
+      <if test="shortVehicle != null">
+        #{shortVehicle,jdbcType=INTEGER},
+      </if>
+      <if test="shortGps != null">
+        #{shortGps,jdbcType=INTEGER},
+      </if>
+      <if test="longVehicle != null">
+        #{longVehicle,jdbcType=INTEGER},
+      </if>
+      <if test="longGps != null">
+        #{longGps,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.easycar.model.GPSOverview">
+    update gps_overview
+    <set>
+      <if test="timeVehicle != null">
+        time_vehicle = #{timeVehicle,jdbcType=INTEGER},
+      </if>
+      <if test="timeGps != null">
+        time_gps = #{timeGps,jdbcType=INTEGER},
+      </if>
+      <if test="shortVehicle != null">
+        short_vehicle = #{shortVehicle,jdbcType=INTEGER},
+      </if>
+      <if test="shortGps != null">
+        short_gps = #{shortGps,jdbcType=INTEGER},
+      </if>
+      <if test="longVehicle != null">
+        long_vehicle = #{longVehicle,jdbcType=INTEGER},
+      </if>
+      <if test="longGps != null">
+        long_gps = #{longGps,jdbcType=INTEGER},
+      </if>
+    </set>
+    where month = #{month,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.easycar.model.GPSOverview">
+    update gps_overview
+    set time_vehicle = #{timeVehicle,jdbcType=INTEGER},
+      time_gps = #{timeGps,jdbcType=INTEGER},
+      short_vehicle = #{shortVehicle,jdbcType=INTEGER},
+      short_gps = #{shortGps,jdbcType=INTEGER},
+      long_vehicle = #{longVehicle,jdbcType=INTEGER},
+      long_gps = #{longGps,jdbcType=INTEGER}
+    where month = #{month,jdbcType=VARCHAR}
+  </update>
+  <select id="selectAllGPS" resultMap="BaseResultMap">
+    select *
+    from gps_overview
+  </select>
+</mapper>

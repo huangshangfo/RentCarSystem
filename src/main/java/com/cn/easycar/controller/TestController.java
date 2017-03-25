@@ -28,7 +28,7 @@ public class TestController {
 	
 	@RequestMapping(value="/actors", method = RequestMethod.GET)
 	public @ResponseBody String getAllActors(){
-		List<Actor> actors=new ArrayList();
+		List<Actor> actors=new ArrayList<>();
 		actors=testService.getAllActors();
 		return MyJSON.toJSON(actors, 1);
 	}

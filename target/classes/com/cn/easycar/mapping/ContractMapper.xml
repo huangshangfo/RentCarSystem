@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.easycar.dao.ContractMapper">
+  <resultMap id="BaseResultMap" type="com.cn.easycar.model.Contract">
+    <id column="month" jdbcType="VARCHAR" property="month" />
+    <result column="vehicle_num" jdbcType="INTEGER" property="vehicleNum" />
+    <result column="record_num" jdbcType="INTEGER" property="recordNum" />
+    <result column="contract_num" jdbcType="INTEGER" property="contractNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    month, vehicle_num, record_num, contract_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from contract_overview
+    where month = #{month,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from contract_overview
+    where month = #{month,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cn.easycar.model.Contract">
+    insert into contract_overview (month, vehicle_num, record_num, 
+      contract_num)
+    values (#{month,jdbcType=VARCHAR}, #{vehicleNum,jdbcType=INTEGER}, #{recordNum,jdbcType=INTEGER}, 
+      #{contractNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.easycar.model.Contract">
+    insert into contract_overview
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="month != null">
+        month,
+      </if>
+      <if test="vehicleNum != null">
+        vehicle_num,
+      </if>
+      <if test="recordNum != null">
+        record_num,
+      </if>
+      <if test="contractNum != null">
+        contract_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleNum != null">
+        #{vehicleNum,jdbcType=INTEGER},
+      </if>
+      <if test="recordNum != null">
+        #{recordNum,jdbcType=INTEGER},
+      </if>
+      <if test="contractNum != null">
+        #{contractNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.easycar.model.Contract">
+    update contract_overview
+    <set>
+      <if test="vehicleNum != null">
+        vehicle_num = #{vehicleNum,jdbcType=INTEGER},
+      </if>
+      <if test="recordNum != null">
+        record_num = #{recordNum,jdbcType=INTEGER},
+      </if>
+      <if test="contractNum != null">
+        contract_num = #{contractNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where month = #{month,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.easycar.model.Contract">
+    update contract_overview
+    set vehicle_num = #{vehicleNum,jdbcType=INTEGER},
+      record_num = #{recordNum,jdbcType=INTEGER},
+      contract_num = #{contractNum,jdbcType=INTEGER}
+    where month = #{month,jdbcType=VARCHAR}
+  </update>
+  <select id="selectAllContract" resultMap="BaseResultMap">
+    select *
+    from contract_overview
+  </select>
+</mapper>

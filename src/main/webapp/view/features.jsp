@@ -62,16 +62,35 @@
 		<!-- HEADER -->
 		<header id="header">
 			<div id="logo-group">
-
-				<!--  
-				<span id="logo"> <img src="/static/leftmenu/img/logo.png" alt="SmartAdmin"> </span>
-			    -->
-				<span id="logo"> <img src="../static/img/logo.png" alt="SmartAdmin"> </span>
-
-				<span id="activity"> <i class="fa fa-user"></i></span>
-
+				<span id="logo"> <img src="../static/img/logo.png" alt="SmartAdmin"></span>
 			</div>
-
+			<!-- NAVIGATION -->
+			<div class="navbar navbar-default pull-left">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               			<span class="icon-bar"></span>
+                   		<span class="icon-bar"></span>
+           				<span class="icon-bar"></span>
+                	</button>
+				</div>
+				<div class="navbar-collapse collapse navbar-right scroll-me">
+					<ul class="nav navbar-nav ">
+						<li>
+							<a href="dataprofiling.jsp">数据概况</a>
+						</li>
+						<li class="active">
+							<a href="features.jsp">统计特征</a>
+						</li>
+						<li>
+							<a href="trajectory.jsp">轨迹展示</a>
+						</li>
+						<li>
+							<a href="anomaly-detection.jsp">异常车辆检测</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- NAVIGATION -->
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
 
@@ -128,44 +147,9 @@
 
 		</header>
 		<!-- END HEADER -->
-
+		
 		<!-- MAIN PANEL -->
 		<div id="mainbar" role="mainbar">
-
-			<!-- NAVIGATION -->
-			<div id="ribbon">
-				<div class="container-fluid">
-					<div class="navbar navbar-default">
-						<div class="container">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    				<span class="icon-bar"></span>
-                   					<span class="icon-bar"></span>
-                    				<span class="icon-bar"></span>
-                				</button>
-							</div>
-							<div class="navbar-collapse collapse navbar-right scroll-me">
-								<ul class="nav navbar-nav ">
-									<li>
-										<a href="dataprofiling.jsp">数据概况</a>
-									</li>
-									<li class="active">
-										<a href="features.jsp">统计特征</a>
-									</li>
-									<li>
-										<a href="trajectory.jsp">轨迹展示</a>
-									</li>
-									<li>
-										<a href="anomaly-detection.jsp">异常车辆检测</a>
-									</li>
-								</ul>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- NAVIGATION -->
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
