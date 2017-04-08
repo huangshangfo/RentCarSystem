@@ -1,0 +1,33 @@
+#base-data {
+	height: 400px;
+	margin: 5px;
+	text-align: center;
+}
+
+#gps-data {
+	height: 400px;
+	text-align: center;
+}
+#gps-data #gps-pie{
+	height: inherit;
+	float: left;
+	width: 70%;
+}
+#gps-data #choose-month{
+	float: left;
+	width: 30%;
+}
+
+#timeline-data {
+	height: 300px;
+	margin: 5px;
+	text-align: center;
+}
+
+#sliders table{
+	color:lightskyblue;
+	height: 30px;
+}
+#base-container{
+	height: 370px;
+}

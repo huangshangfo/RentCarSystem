@@ -23,15 +23,9 @@
 		<!-- SmartAdmin RTL Support  -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/smartadmin-rtl.min.css">
 
-		<!-- We recommend you use "your_style.css" to override SmartAdmin
-		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/your_style.css"> -->
-
-		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/demo.min.css">
-
 		<!-- My style css -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/my_style.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/page/features.css">
 
 		<!-- FAVICONS -->
 		<link rel="shortcut icon" href="../static/img/favicon/favicon.ico" type="image/x-icon">
@@ -62,7 +56,7 @@
 		<!-- HEADER -->
 		<header id="header">
 			<div id="logo-group">
-				<span id="logo"> <img src="../static/img/logo.png" alt="SmartAdmin"></span>
+				<span id="logo"> <img src="../static/img/logo.png" alt="EasyCar"></span>
 			</div>
 			<!-- NAVIGATION -->
 			<div class="navbar navbar-default pull-left">
@@ -82,10 +76,10 @@
 							<a href="features.jsp">统计特征</a>
 						</li>
 						<li>
-							<a href="trajectory.jsp">轨迹展示</a>
+							<a href="trajectory.jsp">质量分析</a>
 						</li>
 						<li>
-							<a href="anomaly-detection.jsp">异常车辆检测</a>
+							<a href="od.jsp">OD分析</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +93,7 @@
 				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
 					<li class="">
 						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-							<img src="/static/leftmenu/img/avatars/sunny.png" alt="John Doe" class="online" />
+							<img src="../static/img/avatars/sunny.png" alt="John Doe" class="online" />
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li>
@@ -147,128 +141,96 @@
 
 		</header>
 		<!-- END HEADER -->
-		
+
 		<!-- MAIN PANEL -->
-		<div id="mainbar" role="mainbar">
+		<div id="main" role="main">
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
-
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
+					<!-- row -->
+					<div class="row">
+						<article class="col-sm-12 col-md-6 col-lg-6">
+							<div id="myCarousel" class="carousel fade" data-ride="carousel">
+								<ol class="carousel-indicators" style="bottom: 0;">
+									<li data-target="#myCarousel" data-slide-to="0" class="active" rel="tooltip" data-placement="top" data-original-title="长租"></li>
+									<li data-target="#myCarousel" data-slide-to="1" class="" rel="tooltip" data-placement="top" data-original-title="短租"></li>
+									<li data-target="#myCarousel" data-slide-to="2" class="" rel="tooltip" data-placement="top" data-original-title="分时"></li>
+								</ol>
+								<div class="carousel-inner">
+									<!-- Slide 1 -->
+									<div class="item active" id="rtl-changzu">
+									</div>
+									<!-- Slide 2 -->
+									<div class="item" id="rtl-duanzu">
+									</div>
+									<!-- Slide 3 -->
+									<div class="item" id="rtl-fenshi">
+									</div>
+								</div>
+								
+							</div>
+
+						</article>
+						<article class="col-sm-12 col-md-6 col-lg-6">
+							<div id="myCarousel2" class="carousel slide" data-ride="carousel">
+								<ol class="carousel-indicators" style="bottom: 0;">
+									<li data-target="#myCarousel2" data-slide-to="0" class="active" rel="tooltip" data-placement="top" data-original-title="工作日"></li>
+									<li data-target="#myCarousel2" data-slide-to="1" class="" rel="tooltip" data-placement="top" data-original-title="双休日"></li>
+								</ol>
+								<div class="carousel-inner">
+									<!-- Slide 1 -->
+									<div class="item active" id="useIntensity-weekday">
+									</div>
+									<!-- Slide 2 -->
+									<div class="item" id="useIntensity-weekend">
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+					<!-- end row -->
 
 					<!-- row -->
 					<div class="row">
 						<article class="col-sm-12 col-md-6 col-lg-6">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-4" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> 
-										<i class="fa fa-clock-o txt-color-white"></i> 
-									</span>
-									<h2> 租赁时长 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
+							<div id="myCarousel3" class="carousel fade" data-ride="carousel">
+								<ol class="carousel-indicators" style="bottom: 0;">
+									<li data-target="#myCarousel3" data-slide-to="0" class="active" rel="tooltip" data-placement="top" data-original-title="工作日"></li>
+									<li data-target="#myCarousel3" data-slide-to="1" class="" rel="tooltip" data-placement="top" data-original-title="双休日"></li>
+								</ol>
+								<div class="carousel-inner">
+									<!-- Slide 1 -->
+									<div class="item active" id="averageMileage-weekday">
+									</div>
+									<!-- Slide 2 -->
+									<div class="item" id="averageMileage-weekend">
 									</div>
 								</div>
 							</div>
 						</article>
 						
 						<article class="col-sm-12 col-md-6 col-lg-6">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> <i class="fa fa-truck txt-color-white"></i> </span>
-									<h2> 使用强度 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
+							<div id="myCarousel4" class="carousel fade" data-ride="carousel">
+								<ol class="carousel-indicators" style="bottom: 0;">
+									<li data-target="#myCarousel4" data-slide-to="0" class="active" rel="tooltip" data-placement="top" data-original-title="工作日"></li>
+									<li data-target="#myCarousel4" data-slide-to="1" class="" rel="tooltip" data-placement="top" data-original-title="双休日"></li>
+								</ol>
+								<div class="carousel-inner">
+									<!-- Slide 1 -->
+									<div class="item active" id="travelTime-weekday">
+									</div>
+									<!-- Slide 2 -->
+									<div class="item" id="travelTime-weekend">
 									</div>
 								</div>
 							</div>
 						</article>
 					</div>
 					<!-- end row -->
-					
-					<!-- row -->
-					<div class="row">
-						<article class="col-sm-12">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-5" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> 
-										<i class="fa fa-car txt-color-white"></i> 
-									</span>
-									<h2> 行驶强度 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-					<!-- end row -->
-
-					<!-- row -->
-					<div class="row">
-						<article class="col-sm-12">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-8" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> 
-										<i class="fa fa-circle-o-notch txt-color-white"></i> 
-									</span>
-									<h2> 日均行驶时间 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-					<!-- end row -->
-					
-					<!-- row -->
-					<div class="row">
-						<article class="col-sm-12">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-7" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> 
-										<i class="fa fa-bar-chart-o txt-color-white"></i> 
-									</span>
-									<h2> 出行时间 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-					<!-- end row -->
-
 				</section>
 				<!-- end widget grid -->
-
 			</div>
 			<!-- END MAIN CONTENT -->
 
@@ -287,8 +249,6 @@
 
 		<!--================================================== -->
 
-		<script src="../static/js/echarts.min.js "></script>
-		<script src="../static/js/my.js "></script>
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter ": true }' src="../static/js/plugin/pace/pace.min.js "></script>
 
@@ -306,29 +266,8 @@
 		<!-- BOOTSTRAP JS -->
 		<script src="../static/js/bootstrap/bootstrap.min.js "></script>
 
-		<!-- CUSTOM NOTIFICATION -->
-		<script src="../static/js/notification/SmartNotification.min.js "></script>
-
-		<!-- JARVIS WIDGETS -->
-		<script src="../static/js/smartwidgets/jarvis.widget.min.js "></script>
-
-		<!-- EASY PIE CHARTS -->
-		<script src="../static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js "></script>
-
-		<!-- SPARKLINES -->
-		<script src="../static/js/plugin/sparkline/jquery.sparkline.min.js "></script>
-
 		<!-- JQUERY VALIDATE -->
 		<script src="../static/js/plugin/jquery-validate/jquery.validate.min.js "></script>
-
-		<!-- JQUERY MASKED INPUT -->
-		<script src="../static/js/plugin/masked-input/jquery.maskedinput.min.js "></script>
-
-		<!-- JQUERY SELECT2 INPUT -->
-		<script src="../static/js/plugin/select2/select2.min.js "></script>
-
-		<!-- JQUERY UI + Bootstrap Slider -->
-		<script src="../static/js/plugin/bootstrap-slider/bootstrap-slider.min.js "></script>
 
 		<!-- browser msie issue fix -->
 		<script src="../static/js/plugin/msie-fix/jquery.mb.browser.min.js "></script>
@@ -336,31 +275,13 @@
 		<!-- FastClick: For mobile devices -->
 		<script src="../static/js/plugin/fastclick/fastclick.min.js "></script>
 
-		<!--[if IE 8]>
-
-		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-		<![endif]-->
-
-		<!-- Demo purpose only -->
-		<script src="../static/js/demo.min.js "></script>
-
 		<!-- MAIN APP JS FILE -->
 		<script src="../static/js/app.min.js "></script>
 
-		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-		<!-- Voice command : plugin -->
-		<script src="../static/js/speech/voicecommand.min.js "></script>
-
-		<!-- SmartChat UI : plugin -->
-		<script src="../static/js/smart-chat-ui/smart.chat.ui.min.js "></script>
-		<script src="../static/js/smart-chat-ui/smart.chat.manager.min.js "></script>
-
-		<!-- PAGE RELATED PLUGIN(S) -->
-
-		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
-		<script src="../static/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js "></script>
-		<script src="../static/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js "></script>
+		<!-- My JS AND DATA-->
+		<script src="../static/js/echarts.min.js "></script>
+		<script src="../static/data/features.json"></script>
+		<script src="../static/js/page/features.js"></script>
 
 		<script>
 			$(document).ready(function() {

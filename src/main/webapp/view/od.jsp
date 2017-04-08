@@ -23,15 +23,9 @@
 		<!-- SmartAdmin RTL Support  -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/smartadmin-rtl.min.css">
 
-		<!-- We recommend you use "your_style.css" to override SmartAdmin
-		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/your_style.css"> -->
-
-		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/demo.min.css">
-
 		<!-- My style css -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/my_style.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/page/od.css">
 
 		<!-- FAVICONS -->
 		<link rel="shortcut icon" href="../static/img/favicon/favicon.ico" type="image/x-icon">
@@ -82,10 +76,10 @@
 							<a href="features.jsp">统计特征</a>
 						</li>
 						<li>
-							<a href="trajectory.jsp">轨迹展示</a>
+							<a href="trajectory.jsp">质量分析</a>
 						</li>
 						<li class="active">
-							<a href="anomaly-detection.jsp">异常车辆检测</a>
+							<a href="od.jsp">OD分析</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +93,7 @@
 				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
 					<li class="">
 						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-							<img src="/static/leftmenu/img/avatars/sunny.png" alt="John Doe" class="online" />
+							<img src="../static/img/avatars/sunny.png" alt="John Doe" class="online" />
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li>
@@ -147,68 +141,14 @@
 
 		</header>
 		<!-- END HEADER -->
-		
+
 		<!-- MAIN PANEL -->
-		<div id="mainbar" role="mainbar">
+		<div id="main" role="main">
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
-
-				<!-- widget grid -->
-				<section id="widget-grid" class="">
-
-					<!-- test row -->
-					<div class="row">
-						<article class="col-sm-12">
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false">
-								<header>
-									<h2>异常车辆</h2>
-								</header>
-								<div>
-									<div class="row">
-										<div class="form-group">
-											<label class="control-label col-xs-2 col-sm-offset-3" style="top:5px">可能的异常车辆:</label>
-											<div class="col-xs-3">
-												<select class="form-control" id="select-1">
-													<option>车辆1</option>
-													<option>车辆2</option>
-													<option>车辆3</option>
-													<option>车辆4</option>
-													<option>车辆5</option>
-												</select>
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-sm-offset-1 col-sm-5" id="use-frequence">
-											<h1>使用频率</h1>
-										</div>
-										<div class="col-sm-5" id="drving-force">
-											<h1>行驶强度</h1>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-sm-offset-1 col-sm-10" id="hotpot-visit">
-											<h1>热点区域访问频率</h1>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-sm-offset-1 col-sm-10" id="drive-trail">
-											<h1>行驶轨迹，主要与出租车进行比较</h1>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-					<!-- end test row -->
-
-				</section>
-				<!-- end widget grid -->
-
+				<div id="show-od">
+				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
 
@@ -227,8 +167,6 @@
 
 		<!--================================================== -->
 
-		<script src="../static/js/echarts.min.js "></script>
-		<script src="../static/js/my.js "></script>
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter ": true }' src="../static/js/plugin/pace/pace.min.js "></script>
 
@@ -246,29 +184,8 @@
 		<!-- BOOTSTRAP JS -->
 		<script src="../static/js/bootstrap/bootstrap.min.js "></script>
 
-		<!-- CUSTOM NOTIFICATION -->
-		<script src="../static/js/notification/SmartNotification.min.js "></script>
-
-		<!-- JARVIS WIDGETS -->
-		<script src="../static/js/smartwidgets/jarvis.widget.min.js "></script>
-
-		<!-- EASY PIE CHARTS -->
-		<script src="../static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js "></script>
-
-		<!-- SPARKLINES -->
-		<script src="../static/js/plugin/sparkline/jquery.sparkline.min.js "></script>
-
 		<!-- JQUERY VALIDATE -->
 		<script src="../static/js/plugin/jquery-validate/jquery.validate.min.js "></script>
-
-		<!-- JQUERY MASKED INPUT -->
-		<script src="../static/js/plugin/masked-input/jquery.maskedinput.min.js "></script>
-
-		<!-- JQUERY SELECT2 INPUT -->
-		<script src="../static/js/plugin/select2/select2.min.js "></script>
-
-		<!-- JQUERY UI + Bootstrap Slider -->
-		<script src="../static/js/plugin/bootstrap-slider/bootstrap-slider.min.js "></script>
 
 		<!-- browser msie issue fix -->
 		<script src="../static/js/plugin/msie-fix/jquery.mb.browser.min.js "></script>
@@ -276,31 +193,17 @@
 		<!-- FastClick: For mobile devices -->
 		<script src="../static/js/plugin/fastclick/fastclick.min.js "></script>
 
-		<!--[if IE 8]>
-
-		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-		<![endif]-->
-
-		<!-- Demo purpose only -->
-		<script src="../static/js/demo.min.js "></script>
-
 		<!-- MAIN APP JS FILE -->
 		<script src="../static/js/app.min.js "></script>
 
-		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-		<!-- Voice command : plugin -->
-		<script src="../static/js/speech/voicecommand.min.js "></script>
+		<!-- map -->
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1XjLLEhZhQNUzd93EjU5nOGQ"></script>
 
-		<!-- SmartChat UI : plugin -->
-		<script src="../static/js/smart-chat-ui/smart.chat.ui.min.js "></script>
-		<script src="../static/js/smart-chat-ui/smart.chat.manager.min.js "></script>
+		<script src="../static/assets/js/echarts.js"></script>
 
-		<!-- PAGE RELATED PLUGIN(S) -->
-
-		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
-		<script src="../static/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js "></script>
-		<script src="../static/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js "></script>
+		<!-- import my js-->
+		<script src="../static/data/od_demo.json"></script>
+		<script src="../static/js/page/od.js"></script>
 
 		<script>
 			$(document).ready(function() {

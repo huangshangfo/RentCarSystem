@@ -1,9 +1,3 @@
-var map = new BMap.Map("show-map");
-map.centerAndZoom(new BMap.Point(116.404, 39.915), 11); // 初始化地图,设置中心点坐标和地图级别
-map.addControl(new BMap.MapTypeControl()); //添加地图类型控件
-map.setCurrentCity("北京"); // 设置地图显示的城市 此项是必须设置的
-map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
-
 (function() {
 
 	// 路径配置
@@ -215,7 +209,7 @@ map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
 					max: 120,
 					calculable: true,
 					x: 100,
-					y: document.body.clientHeight - 250,
+					y: document.body.clientHeight - 350,
 					color: ['#ff3333', 'orange', 'yellow', 'lime', 'aqua'],
 					textStyle: {
 						color: '#fff'

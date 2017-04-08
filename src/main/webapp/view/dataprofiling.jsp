@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
 
 	<head>
@@ -14,6 +15,7 @@
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/font-awesome.min.css">
+		<link href="../static/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
 		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/smartadmin-production-plugins.min.css">
@@ -23,15 +25,9 @@
 		<!-- SmartAdmin RTL Support  -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/smartadmin-rtl.min.css">
 
-		<!-- We recommend you use "your_style.css" to override SmartAdmin
-		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/your_style.css"> -->
-
-		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/demo.min.css">
-
 		<!-- My style css -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/my_style.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/page/dataprofiling.css" />
 
 		<!-- FAVICONS -->
 		<link rel="shortcut icon" href="../static/img/favicon/favicon.ico" type="image/x-icon">
@@ -62,7 +58,7 @@
 		<!-- HEADER -->
 		<header id="header">
 			<div id="logo-group">
-				<span id="logo"> <img src="../static/img/logo.png" alt="SmartAdmin"></span>
+				<span id="logo"> <img src="../static/img/logo.png" alt="EasyCar"></span>
 			</div>
 			<!-- NAVIGATION -->
 			<div class="navbar navbar-default pull-left">
@@ -82,10 +78,10 @@
 							<a href="features.jsp">统计特征</a>
 						</li>
 						<li>
-							<a href="trajectory.jsp">轨迹展示</a>
+							<a href="trajectory.jsp">质量分析</a>
 						</li>
 						<li>
-							<a href="anomaly-detection.jsp">异常车辆检测</a>
+							<a href="od.jsp">OD分析</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +95,7 @@
 				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
 					<li class="">
 						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-							<img src="/static/leftmenu/img/avatars/sunny.png" alt="John Doe" class="online" />
+							<img src="../static/img/avatars/sunny.png" alt="John Doe" class="online" />
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li>
@@ -147,82 +143,62 @@
 
 		</header>
 		<!-- END HEADER -->
-		
+
 		<!-- MAIN PANEL -->
-		<div id="mainbar" role="mainbar">
+		<div id="main" role="main">
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
-
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
 
 					<!-- row -->
 					<div class="row">
-						<article class="col-sm-12 col-md-6 col-lg-6">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> <i class="fa fa-bar-chart txt-color-white"></i> </span>
-									<h2> 基础数据 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
-									</div>
-								</div>
+						<article class="col-sm-12 col-md-7 col-lg-7">
+							<div id="base-data">
+								<!--<div id="sliders">
+									<table>
+										<tr>
+											<td>α 角（内旋转角）</td>
+											<td><input id="alpha" type="range" min="0" max="45" value="15" /> <span id="alpha-value" class="value"></span></td>
+											<td>β 角（外旋转角）</td>
+											<td><input id="beta" type="range" min="-45" max="45" value="15" /> <span id="beta-value" class="value"></span></td>
+											<td>深度</td>
+											<td><input id="depth" type="range" min="20" max="100" value="50" /> <span id="depth-value" class="value"></span></td>
+										</tr>
+										
+									</table>
+								</div>-->
+								<div id="base-container"></div>
 							</div>
 						</article>
-						
-						<article class="col-sm-12 col-md-6 col-lg-6">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-5" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> 
-										<i class="fa fa-bar-chart txt-color-white"></i> 
-									</span>
-									<h2> GPS数据 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
+
+						<article class="col-sm-12 col-md-5 col-lg-5">
+							<div id="gps-data">
+								<div id="gps-pie"></div>
+								<div id="choose-month" class="col-sm-2 col-md-2 col-lg-2">
+									<div class="input-group date form_datetime " data-date="2016-08" data-date-format="yyyy-mm" data-link-field="dtp_input1">
+										<input class="form-control" id="text-month"size="16" type="text" value="2016-08" readonly>
+										<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 									</div>
 								</div>
 							</div>
+
 						</article>
 					</div>
 					<!-- end row -->
-					
+
 					<!-- row -->
 					<div class="row">
 						<article class="col-sm-12">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-6" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> 
-										<i class="fa fa-bar-chart txt-color-white"></i> 
-									</span>
-									<h2> 各公司数据情况对比 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
-								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="show-data-1">
-										</div>
-									</div>
-								</div>
+							<div id="timeline-data">
 							</div>
 						</article>
 					</div>
 					<!-- end row -->
-					
+
 				</section>
 				<!-- end widget grid -->
-
 			</div>
 			<!-- END MAIN CONTENT -->
 
@@ -241,16 +217,27 @@
 
 		<!--================================================== -->
 
-		<script src="../static/js/echarts.min.js "></script>
-		<script src="../static/js/my.js "></script>
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter ": true }' src="../static/js/plugin/pace/pace.min.js "></script>
 
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-		<script src="../static/js/libs/jquery-2.1.1.min.js "></script>
-
+		
+		<!--<script src="../static/js/libs/jquery-2.1.1.min.js "></script>-->
+		<script src="../static/js/libs/jquery.min.js "></script>
 		<script src="../static/js/libs/jquery-ui-1.10.3.min.js "></script>
-
+		
+		<!-- 该页面特有js文件-->
+		<script src="../static/js/echarts.min.js "></script>
+		<script src="../static/js/hcharts/highcharts.js"></script>
+		<script src="../static/js/hcharts/highcharts-3d.js"></script>
+		<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+		<script src="../static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+		<script src="../static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.fr.js"></script>
+		
+		<!-- 自定义文件及数据-->
+		<script src="../static/data/dataprofiling.json"></script>
+		<script src="../static/js/page/dataprofiling.js"></script>
+		
 		<!-- IMPORTANT: APP CONFIG -->
 		<script src="../static/js/app.config.js "></script>
 
@@ -260,29 +247,8 @@
 		<!-- BOOTSTRAP JS -->
 		<script src="../static/js/bootstrap/bootstrap.min.js "></script>
 
-		<!-- CUSTOM NOTIFICATION -->
-		<script src="../static/js/notification/SmartNotification.min.js "></script>
-
-		<!-- JARVIS WIDGETS -->
-		<script src="../static/js/smartwidgets/jarvis.widget.min.js "></script>
-
-		<!-- EASY PIE CHARTS -->
-		<script src="../static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js "></script>
-
-		<!-- SPARKLINES -->
-		<script src="../static/js/plugin/sparkline/jquery.sparkline.min.js "></script>
-
 		<!-- JQUERY VALIDATE -->
 		<script src="../static/js/plugin/jquery-validate/jquery.validate.min.js "></script>
-
-		<!-- JQUERY MASKED INPUT -->
-		<script src="../static/js/plugin/masked-input/jquery.maskedinput.min.js "></script>
-
-		<!-- JQUERY SELECT2 INPUT -->
-		<script src="../static/js/plugin/select2/select2.min.js "></script>
-
-		<!-- JQUERY UI + Bootstrap Slider -->
-		<script src="../static/js/plugin/bootstrap-slider/bootstrap-slider.min.js "></script>
 
 		<!-- browser msie issue fix -->
 		<script src="../static/js/plugin/msie-fix/jquery.mb.browser.min.js "></script>
@@ -290,31 +256,8 @@
 		<!-- FastClick: For mobile devices -->
 		<script src="../static/js/plugin/fastclick/fastclick.min.js "></script>
 
-		<!--[if IE 8]>
-
-		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-		<![endif]-->
-
-		<!-- Demo purpose only -->
-		<script src="../static/js/demo.min.js "></script>
-
 		<!-- MAIN APP JS FILE -->
 		<script src="../static/js/app.min.js "></script>
-
-		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-		<!-- Voice command : plugin -->
-		<script src="../static/js/speech/voicecommand.min.js "></script>
-
-		<!-- SmartChat UI : plugin -->
-		<script src="../static/js/smart-chat-ui/smart.chat.ui.min.js "></script>
-		<script src="../static/js/smart-chat-ui/smart.chat.manager.min.js "></script>
-
-		<!-- PAGE RELATED PLUGIN(S) -->
-
-		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
-		<script src="../static/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js "></script>
-		<script src="../static/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js "></script>
 
 		<script>
 			$(document).ready(function() {

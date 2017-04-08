@@ -1,0 +1,644 @@
+/*基础数据*/
+var vehicle_num = [9912, 9444, 9109, 9612];
+var record_num = [60073, 65131, 73459, 87382];
+var contract_num = [54717, 59744, 66899, 78717];
+
+var colorList = [
+	'#c23531', '#2f4554', '#61a0a8'
+];
+
+//各租赁类型各月份上传了GPS车辆数
+var data8 = [
+	{ value: 666, name: '分时租赁' },
+	{ value: 780, name: '短租' },
+	{ value: 987, name: '长租' }
+];
+var data9 = [
+	{ value: 506, name: '分时租赁' },
+	{ value: 570, name: '短租' },
+	{ value: 984, name: '长租' }
+];
+var data10 = [
+	{ value: 692, name: '分时租赁' },
+	{ value: 571, name: '短租' },
+	{ value: 1339, name: '长租' }
+];
+var data11 = [
+	{ value: 529, name: '分时租赁' },
+	{ value: 500, name: '短租' },
+	{ value: 1289, name: '长租' }
+];
+
+//各租赁类型车每天上传的GPS量
+var gpsNum=[
+	{ "date": '2016.8.1',
+	  "fenshi": 32001,
+	  "duanzu": 23645,
+	  "changzu": 35356
+	},
+	{ "date": '2016.8.2',
+	  "fenshi": 557242,
+	  "duanzu": 224452,
+	  "changzu": 490359
+	},
+	{ "date": '2016.8.3',
+	  "fenshi": 419951,
+	  "duanzu": 220275,
+	  "changzu": 554475
+	},
+	{ "date": '2016.8.4',
+	  "fenshi": 262188,
+	  "duanzu": 212710,
+	  "changzu": 529954
+	},
+	{ "date": '2016.8.5',
+	  "fenshi": 268158,
+	  "duanzu": 194545,
+	  "changzu": 508915
+	},
+	{ "date": '2016.8.6',
+	  "fenshi": 333649,
+	  "duanzu": 201994,
+	  "changzu": 437186
+	},
+	{ "date": '2016.8.7',
+	  "fenshi": 314762,
+	  "duanzu": 201926,
+	  "changzu": 454440
+	},
+	{ "date": '2016.8.8',
+	  "fenshi": 433415,
+	  "duanzu": 204617,
+	  "changzu": 515579
+	},
+	{ "date": '2016.8.9',
+	  "fenshi": 697447,
+	  "duanzu": 207884,
+	  "changzu": 484107
+	},
+	{ "date": '2016.8.10',
+	  "fenshi": 664744,
+	  "duanzu": 204362,
+	  "changzu": 452785
+	},
+	{ "date": '2016.8.11',
+	  "fenshi": 624098,
+	  "duanzu": 212765,
+	  "changzu": 535560
+	},
+	{ "date": '2016.8.12',
+	  "fenshi": 582620,
+	  "duanzu": 180757,
+	  "changzu": 483667
+	},
+	{ "date": '2016.8.13',
+	  "fenshi": 580537,
+	  "duanzu": 178494,
+	  "changzu": 321134
+	},
+	{ "date": '2016.8.14',
+	  "fenshi": 331914,
+	  "duanzu": 114509,
+	  "changzu": 201439
+	},
+	{ "date": '2016.8.15',
+	  "fenshi": 540029,
+	  "duanzu": 186134,
+	  "changzu": 442951
+	},
+	{ "date": '2016.8.16',
+	  "fenshi": 360678,
+	  "duanzu": 112218,
+	  "changzu": 307168
+	},
+	{ "date": '2016.8.17',
+	  "fenshi": 542661,
+	  "duanzu": 192361,
+	  "changzu": 482484
+	},
+	{ "date": '2016.8.18',
+	  "fenshi": 600088,
+	  "duanzu": 208912,
+	  "changzu": 561973
+	},
+	{ "date": '2016.8.19',
+	  "fenshi": 550063,
+	  "duanzu": 197500,
+	  "changzu": 467387
+	},
+	{ "date": '2016.8.20',
+	  "fenshi": 639875,
+	  "duanzu": 192159,
+	  "changzu": 394854
+	},
+	{ "date": '2016.8.21',
+	  "fenshi": 198391,
+	  "duanzu": 216627,
+	  "changzu": 409523
+	},
+	{ "date": '2016.8.22',
+	  "fenshi": 155768,
+	  "duanzu": 213689,
+	  "changzu": 525231
+	},
+	{ "date": '2016.8.23',
+	  "fenshi": 330787,
+	  "duanzu": 198612,
+	  "changzu": 492657
+	},
+	{ "date": '2016.8.24',
+	  "fenshi": 531031,
+	  "duanzu": 223158,
+	  "changzu": 559070
+	},
+	{ "date": '2016.8.25',
+	  "fenshi": 264574,
+	  "duanzu": 218253,
+	  "changzu": 555073
+	},
+	{ "date": '2016.8.26',
+	  "fenshi": 190105,
+	  "duanzu": 213408,
+	  "changzu": 457286
+	},
+	{ "date": '2016.8.27',
+	  "fenshi": 183243,
+	  "duanzu": 215208,
+	  "changzu": 446312
+	},
+	{ "date": '2016.8.28',
+	  "fenshi": 237427,
+	  "duanzu": 215970,
+	  "changzu": 511633
+	},
+	{ "date": '2016.8.29',
+	  "fenshi": 341678,
+	  "duanzu": 211033,
+	  "changzu": 531958
+	},
+	{ "date": '2016.8.30',
+	  "fenshi": 337377,
+	  "duanzu": 205178,
+	  "changzu": 550415
+	},
+	{ "date": '2016.8.31',
+	  "fenshi": 354628,
+	  "duanzu": 216214,
+	  "changzu": 528313
+	},
+	{ "date": '2016.9.1',
+	  "fenshi": 366713,
+	  "duanzu": 191560,
+	  "changzu": 690474
+	},
+	{ "date": '2016.9.2',
+	  "fenshi": 383284,
+	  "duanzu": 205451,
+	  "changzu": 733296
+	},
+	{ "date": '2016.9.3',
+	  "fenshi": 65281,
+	  "duanzu": 29912,
+	  "changzu": 70983
+	},
+	{ "date": '2016.9.4',
+	  "fenshi": 444744,
+	  "duanzu": 200351,
+	  "changzu": 604478
+	},
+	{ "date": '2016.9.5',
+	  "fenshi": 198046,
+	  "duanzu": 184256,
+	  "changzu": 591297
+	},
+	{ "date": '2016.9.6',
+	  "fenshi": 176299,
+	  "duanzu": 187959,
+	  "changzu": 592250
+	},
+	{ "date": '2016.9.7',
+	  "fenshi": 192184,
+	  "duanzu": 191456,
+	  "changzu": 658363
+	},
+	{ "date": '2016.9.8',
+	  "fenshi": 203861,
+	  "duanzu": 201143,
+	  "changzu": 746034
+	},
+	{ "date": '2016.9.9',
+	  "fenshi": 186529,
+	  "duanzu": 197379,
+	  "changzu": 619738
+	},
+	{ "date": '2016.9.10',
+	  "fenshi": 199021,
+	  "duanzu": 191725,
+	  "changzu": 615648
+	},
+	{ "date": '2016.9.11',
+	  "fenshi": 186240,
+	  "duanzu": 194308,
+	  "changzu": 660687
+	},
+	{ "date": '2016.9.12',
+	  "fenshi": 208720,
+	  "duanzu": 199627,
+	  "changzu": 733884
+	},
+	{ "date": '2016.9.13',
+	  "fenshi": 217209,
+	  "duanzu": 184095,
+	  "changzu": 788242
+	},
+	{ "date": '2016.9.14',
+	  "fenshi": 227141,
+	  "duanzu": 197060,
+	  "changzu": 797998
+	},
+	{ "date": '2016.9.15',
+	  "fenshi": 204575,
+	  "duanzu": 188580,
+	  "changzu": 594927
+	},
+	{ "date": '2016.9.16',
+	  "fenshi": 198669,
+	  "duanzu": 170941,
+	  "changzu": 589999
+	},
+	{ "date": '2016.9.17',
+	  "fenshi": 187202,
+	  "duanzu": 171453,
+	  "changzu": 569959
+	},
+	{ "date": '2016.9.18',
+	  "fenshi": 184172,
+	  "duanzu": 148473,
+	  "changzu": 627318
+	},
+	{ "date": '2016.9.19',
+	  "fenshi": 191051,
+	  "duanzu": 151774,
+	  "changzu": 713031
+	},
+	{ "date": '2016.9.20',
+	  "fenshi": 190826,
+	  "duanzu": 153923,
+	  "changzu": 664270
+	},
+	{ "date": '2016.9.21',
+	  "fenshi": 236023,
+	  "duanzu": 154578,
+	  "changzu": 598589
+	},
+	{ "date": '2016.9.22',
+	  "fenshi": 325456,
+	  "duanzu": 165974,
+	  "changzu": 713428
+	},
+	{ "date": '2016.9.23',
+	  "fenshi": 352658,
+	  "duanzu": 174537,
+	  "changzu": 768713
+	},
+	{ "date": '2016.9.24',
+	  "fenshi": 386356,
+	  "duanzu": 176547,
+	  "changzu": 645884
+	},
+	{ "date": '2016.9.25',
+	  "fenshi": 349516,
+	  "duanzu": 180484,
+	  "changzu": 628676
+	},
+	{ "date": '2016.9.26',
+	  "fenshi": 300558,
+	  "duanzu": 179716,
+	  "changzu": 692408
+	},
+	{ "date": '2016.9.27',
+	  "fenshi": 306582,
+	  "duanzu": 178064,
+	  "changzu": 706051
+	},
+	{ "date": '2016.9.28',
+	  "fenshi": 322937,
+	  "duanzu": 182010,
+	  "changzu": 724040
+	},
+	{ "date": '2016.9.29',
+	  "fenshi": 326541,
+	  "duanzu": 179682,
+	  "changzu": 712507
+	},
+	{ "date": '2016.9.30',
+	  "fenshi": 270138,
+	  "duanzu": 181704,
+	  "changzu": 611768
+	},
+	{ "date": '2016.10.1',
+	  "fenshi": 288416,
+	  "duanzu": 162960,
+	  "changzu": 441053
+	},
+	{ "date": '2016.10.2',
+	  "fenshi": 302796,
+	  "duanzu": 158791,
+	  "changzu": 391581
+	},
+	{ "date": '2016.10.3',
+	  "fenshi": 302331,
+	  "duanzu": 152020,
+	  "changzu": 450836
+	},
+	{ "date": '2016.10.4',
+	  "fenshi": 305875,
+	  "duanzu": 148705,
+	  "changzu": 391759
+	},
+	{ "date": '2016.10.5',
+	  "fenshi": 322148,
+	  "duanzu": 157476,
+	  "changzu": 405354
+	},
+	{ "date": '2016.10.6',
+	  "fenshi": 265604,
+	  "duanzu": 148970,
+	  "changzu": 388541
+	},
+	{ "date": '2016.10.7',
+	  "fenshi": 283094,
+	  "duanzu": 148689,
+	  "changzu": 346610
+	},
+	{ "date": '2016.10.8',
+	  "fenshi": 293511,
+	  "duanzu": 137536,
+	  "changzu": 520176
+	},
+	{ "date": '2016.10.9',
+	  "fenshi": 350682,
+	  "duanzu": 143695,
+	  "changzu": 422661
+	},
+	{ "date": '2016.10.10',
+	  "fenshi": 511082,
+	  "duanzu": 145453,
+	  "changzu": 490989
+	},
+	{ "date": '2016.10.11',
+	  "fenshi": 508939,
+	  "duanzu": 145211,
+	  "changzu": 526882
+	},
+	{ "date": '2016.10.12',
+	  "fenshi": 428329,
+	  "duanzu": 149200,
+	  "changzu": 503541
+	},
+	{ "date": '2016.10.13',
+	  "fenshi": 373489,
+	  "duanzu": 143213,
+	  "changzu": 606228
+	},
+	{ "date": '2016.10.14',
+	  "fenshi": 368910,
+	  "duanzu": 145014,
+	  "changzu": 653154
+	},
+	{ "date": '2016.10.15',
+	  "fenshi": 374606,
+	  "duanzu": 135763,
+	  "changzu": 555118
+	},
+	{ "date": '2016.10.16',
+	  "fenshi": 359133,
+	  "duanzu": 129962,
+	  "changzu": 532031
+	},
+	{ "date": '2016.10.17',
+	  "fenshi": 342367,
+	  "duanzu": 135472,
+	  "changzu": 607640
+	},
+	{ "date": '2016.10.18',
+	  "fenshi": 357647,
+	  "duanzu": 138577,
+	  "changzu": 643522
+	},
+	{ "date": '2016.10.19',
+	  "fenshi": 351415,
+	  "duanzu": 136723,
+	  "changzu": 625305
+	},
+	{ "date": '2016.10.20',
+	  "fenshi": 385635,
+	  "duanzu": 136331,
+	  "changzu": 636810
+	},
+	{ "date": '2016.10.21',
+	  "fenshi": 414494,
+	  "duanzu": 140094,
+	  "changzu": 656831
+	},
+	{ "date": '2016.10.22',
+	  "fenshi": 387452,
+	  "duanzu": 139135,
+	  "changzu": 588072
+	},
+	{ "date": '2016.10.23',
+	  "fenshi": 375080,
+	  "duanzu": 141693,
+	  "changzu": 577468
+	},
+	{ "date": '2016.10.24',
+	  "fenshi": 349550,
+	  "duanzu": 137228,
+	  "changzu": 627947
+	},
+	{ "date": '2016.10.25',
+	  "fenshi": 354185,
+	  "duanzu": 129710,
+	  "changzu": 615624
+	},
+	{ "date": '2016.10.26',
+	  "fenshi": 348214,
+	  "duanzu": 129123,
+	  "changzu": 534596
+	},
+	{ "date": '2016.10.27',
+	  "fenshi": 387923,
+	  "duanzu": 134914,
+	  "changzu": 639438
+	},
+	{ "date": '2016.10.28',
+	  "fenshi": 376668,
+	  "duanzu": 113748,
+	  "changzu": 645336
+	},
+	{ "date": '2016.10.29',
+	  "fenshi": 392828,
+	  "duanzu": 112119,
+	  "changzu": 560133
+	},
+	{ "date": '2016.10.30',
+	  "fenshi": 371282,
+	  "duanzu": 113014,
+	  "changzu": 525567
+	},
+	{ "date": '2016.10.31',
+	  "fenshi": 372669,
+	  "duanzu": 112965,
+	  "changzu": 621785
+	},
+	{ "date": '2016.11.1',
+	  "fenshi": 127515,
+	  "duanzu": 0,
+	  "changzu": 0
+	},
+	{ "date": '2016.11.2',
+	  "fenshi": 186927,
+	  "duanzu": 0,
+	  "changzu": 0
+	},
+	{ "date": '2016.11.3',
+	  "fenshi": 363184,
+	  "duanzu": 96735,
+	  "changzu": 541032
+	},
+	{ "date": '2016.11.4',
+	  "fenshi": 379290,
+	  "duanzu": 98101,
+	  "changzu": 481867
+	},
+	{ "date": '2016.11.5',
+	  "fenshi": 406232,
+	  "duanzu": 94213,
+	  "changzu": 346860
+	},
+	{ "date": '2016.11.6',
+	  "fenshi": 381606,
+	  "duanzu": 90879,
+	  "changzu": 318248
+	},
+	{ "date": '2016.11.7',
+	  "fenshi": 353927,
+	  "duanzu": 101604,
+	  "changzu": 413856
+	},
+	{ "date": '2016.11.8',
+	  "fenshi": 372624,
+	  "duanzu": 103047,
+	  "changzu": 441311
+	},
+	{ "date": '2016.11.9',
+	  "fenshi": 352997,
+	  "duanzu": 106528,
+	  "changzu": 441559
+	},
+	{ "date": '2016.11.10',
+	  "fenshi": 349456,
+	  "duanzu": 109594,
+	  "changzu": 417330
+	},
+	{ "date": '2016.11.11',
+	  "fenshi": 376626,
+	  "duanzu": 113970,
+	  "changzu": 483478
+	},
+	{ "date": '2016.11.12',
+	  "fenshi": 385850,
+	  "duanzu": 114696,
+	  "changzu": 480315
+	},
+	{ "date": '2016.11.13',
+	  "fenshi": 360999,
+	  "duanzu": 106605,
+	  "changzu": 449260
+	},
+	{ "date": '2016.11.14',
+	  "fenshi": 395361,
+	  "duanzu": 107683,
+	  "changzu": 496746
+	},
+	{ "date": '2016.11.15',
+	  "fenshi": 396952,
+	  "duanzu": 117336,
+	  "changzu": 544131
+	},
+	{ "date": '2016.11.16',
+	  "fenshi": 402170,
+	  "duanzu": 120262,
+	  "changzu": 534162
+	},
+	{ "date": '2016.11.17',
+	  "fenshi": 370501,
+	  "duanzu": 128880,
+	  "changzu": 552509
+	},
+	{ "date": '2016.11.18',
+	  "fenshi": 411377,
+	  "duanzu": 117013,
+	  "changzu": 557311
+	},
+	{ "date": '2016.11.19',
+	  "fenshi": 412207,
+	  "duanzu": 115464,
+	  "changzu": 479650
+	},
+	{ "date": '2016.11.20',
+	  "fenshi": 331025,
+	  "duanzu": 94611,
+	  "changzu": 388542
+	},
+	{ "date": '2016.11.21',
+	  "fenshi": 231959,
+	  "duanzu": 98263,
+	  "changzu": 342258
+	},
+	{ "date": '2016.11.22',
+	  "fenshi": 194719,
+	  "duanzu": 97473,
+	  "changzu": 437338
+	},
+	{ "date": '2016.11.23',
+	  "fenshi": 181050,
+	  "duanzu": 88330,
+	  "changzu": 346786
+	},
+	{ "date": '2016.11.24',
+	  "fenshi": 0,
+	  "duanzu": 0,
+	  "changzu": 0
+	},
+	{ "date": '2016.11.25',
+	  "fenshi": 0,
+	  "duanzu": 0,
+	  "changzu": 0
+	},
+	{ "date": '2016.11.26',
+	  "fenshi": 0,
+	  "duanzu": 0,
+	  "changzu": 0
+	},
+	{ "date": '2016.11.27',
+	  "fenshi": 0,
+	  "duanzu": 0,
+	  "changzu": 0
+	},
+	{ "date": '2016.11.28',
+	  "fenshi": 193727,
+	  "duanzu": 117456,
+	  "changzu": 459469
+	},
+	{ "date": '2016.11.29',
+	  "fenshi": 191480,
+	  "duanzu": 119131,
+	  "changzu": 481888
+	},
+	{ "date": '2016.11.30',
+	  "fenshi": 199232,
+	  "duanzu": 121708,
+	  "changzu": 431480
+	}
+];

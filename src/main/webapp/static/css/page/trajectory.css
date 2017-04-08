@@ -1,0 +1,51 @@
+#main-content {
+	width: 100%;
+	height: 750px;
+	border: solid 0.5px grey;
+}
+
+#show-map {
+	float: left;
+	height: 85%;
+	width: 80%;
+	border-style: solid;
+	border-width: 0.5px;
+	border-color: transparent grey grey transparent;
+}
+
+#choose-data {
+	float: left;
+	height: 85%;
+	width: 20%;
+	padding-top: 20px;
+	border-style: solid;
+	border-width: 0.5px;
+	border-color: transparent transparent grey transparent;
+}
+
+#data-quality {
+	height: 55%;
+	border-bottom: solid 0.5px grey;
+}
+
+#data-quality h3 {
+	text-align: center;
+}
+
+#myForm1 {
+	margin: 10px;
+}
+
+#myForm2 {
+	margin: 10px;
+}
+
+#param{
+	text-align: center;
+}
+
+pre{
+	font-size: 15px;
+	background-color: transparent;
+	border: none;
+}

@@ -27,11 +27,9 @@
 		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/your_style.css"> -->
 
-		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/demo.min.css">
-
 		<!-- My style css -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/my_style.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/page/trajectory.css">
 
 		<!-- FAVICONS -->
 		<link rel="shortcut icon" href="../static/img/favicon/favicon.ico" type="image/x-icon">
@@ -59,7 +57,6 @@
 	</head>
 
 	<body class="">
-
 		<!-- HEADER -->
 		<header id="header">
 			<div id="logo-group">
@@ -83,10 +80,10 @@
 							<a href="features.jsp">统计特征</a>
 						</li>
 						<li class="active">
-							<a href="trajectory.jsp">轨迹展示</a>
+							<a href="trajectory.jsp">质量分析</a>
 						</li>
 						<li>
-							<a href="anomaly-detection.jsp">异常车辆检测</a>
+							<a href="od.jsp">OD分析</a>
 						</li>
 					</ul>
 				</div>
@@ -100,7 +97,7 @@
 				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
 					<li class="">
 						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-							<img src="/static/leftmenu/img/avatars/sunny.png" alt="John Doe" class="online" />
+							<img src="../static/img/avatars/sunny.png" alt="John Doe" class="online" />
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li>
@@ -148,213 +145,144 @@
 
 		</header>
 		<!-- END HEADER -->
-		
+
 		<!-- MAIN PANEL -->
-		<div id="mainbar" role="mainbar">
+		<div id="main" role="main">
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
+				<div id="main-content">
+					<div id="show-map">
+					</div>
+					<div id="choose-data">
+						<div id="data-quality">
+							<h3>GPS数据质量</h3>
+							<div class="form-group" id="myForm1">
+								<label>TOP5 优质公司</label>
+								<select class="form-control" id="select-1">
+									<option>公司1</option>
+									<option>公司2</option>
+									<option>公司3</option>
+									<option>公司4</option>
+									<option>公司5</option>
+								</select>
+								<br /><br />
 
-				<!-- widget grid -->
-				<section id="widget-grid" class="">
+								<label>TOP5 劣质公司</label>
+								<select class="form-control" id="select-1">
+									<option>公司1</option>
+									<option>公司2</option>
+									<option>公司3</option>
+									<option>公司4</option>
+									<option>公司5</option>
+								</select>
+							</div>
+						</div>
+						<div id="base-info">
+							<div class="form-group" id="myForm2">
+								<label>请选择日期:</label>
+								<div class="input-group">
+									<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="dd/mm/yy">
+									<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+								</div>
+								<br />
 
-					<!-- row -->
-					<div class="row">
-						<article class="col-sm-12">
-							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-5" data-widget-editbutton="false">
-								<header>
-									<span class="widget-icon"> 
-										<i class="fa fa-map-marker txt-color-white"></i> 
-									</span>
-									<h2> GPS轨迹 </h2>
-									<div class="widget-toolbar"></div>
-								</header>
+								<label>请选择车辆:</label>
 								<div>
-									<div class="widget-body widget-hide-overflow no-padding">
-										<div id="trail">
-											<div id="show-map">
-
-											</div>
-											<div id="choose-data">
-												<div class="form-group">
-													<label>请选择日期:</label>
-													<div class="input-group">
-														<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="dd/mm/yy">
-														<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-													</div>
-
-													<label>请选择车辆:</label>
-													<div>
-														<select class="form-control" id="select-1">
-															<option>车辆1</option>
-															<option>车辆2</option>
-															<option>车辆3</option>
-															<option>车辆4</option>
-															<option>车辆5</option>
-														</select>
-													</div>
-												</div>
-
-											</div>
-										</div>
-
-									</div>
+									<select class="form-control" id="select-1">
+										<option>车辆1</option>
+										<option>车辆2</option>
+										<option>车辆3</option>
+										<option>车辆4</option>
+										<option>车辆5</option>
+									</select>
 								</div>
-						</article>
+							</div>
 						</div>
-						<!-- end row -->
-
-						<!-- row -->
-						<div class="row">
-							<article class="col-sm-12">
-								<!-- new widget -->
-								<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-6" data-widget-editbutton="false">
-									<header>
-										<span class="widget-icon"> 
-										<i class="fa fa-location-arrow txt-color-white"></i> 
-									</span>
-										<h2> OD分析 </h2>
-										<div class="widget-toolbar"></div>
-									</header>
-									<div>
-										<div class="widget-body widget-hide-overflow no-padding">
-											<div id="show-od">
-											</div>
-										</div>
-									</div>
-								</div>
-							</article>
-						</div>
-						<!-- end row -->
-
-				</section>
-				<!-- end widget grid -->
-
-				</div>
-				<!-- END MAIN CONTENT -->
-
-			</div>
-			<!-- END MAIN PANEL -->
-
-			<!-- PAGE FOOTER -->
-			<div class="page-footer ">
-				<div class="row ">
-					<div class="col-xs-12 col-sm-6 ">
-						<span class="txt-color-white ">EasyCar 1.0<span class="hidden-xs "> - 租赁车数据可视化分析系统</span> © 2016-2017</span>
+					</div>
+					<div id="param">
+						<h3>参数指标</h3>
+						<pre>重复数据上传数占比:    高频活跃车辆数占比:    日传输数据相对差:    位置信息错误占比:    数据密度:</pre>
 					</div>
 				</div>
 			</div>
-			<!-- END PAGE FOOTER -->
+			<!-- END MAIN CONTENT -->
 
-			<!--================================================== -->
+		</div>
+		<!-- END MAIN PANEL -->
 
-			<script src="../static/assets/js/echarts.js"></script>
+		<!-- PAGE FOOTER -->
+		<div class="page-footer ">
+			<div class="row ">
+				<div class="col-xs-12 col-sm-6 ">
+					<span class="txt-color-white ">EasyCar 1.0<span class="hidden-xs "> - 租赁车数据可视化分析系统</span> © 2016-2017</span>
+				</div>
+			</div>
+		</div>
+		<!-- END PAGE FOOTER -->
 
-			<!-- map -->
-			<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1XjLLEhZhQNUzd93EjU5nOGQ"></script>
+		<!--================================================== -->
 
-			<!-- import trajectory.js-->
-			<script src="../static/js/trajectory.js"></script>
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter ": true }' src="../static/js/plugin/pace/pace.min.js "></script>
 
-			<script type="text/javascript" src="../static/data/od_demo.json"></script>
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script src="../static/js/libs/jquery-2.1.1.min.js "></script>
 
-			<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-			<script data-pace-options='{ "restartOnRequestAfter ": true }' src="../static/js/plugin/pace/pace.min.js "></script>
+		<script src="../static/js/libs/jquery-ui-1.10.3.min.js "></script>
 
-			<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-			<script src="../static/js/libs/jquery-2.1.1.min.js "></script>
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="../static/js/app.config.js "></script>
 
-			<script src="../static/js/libs/jquery-ui-1.10.3.min.js "></script>
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+		<script src="../static/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js "></script>
 
-			<!-- IMPORTANT: APP CONFIG -->
-			<script src="../static/js/app.config.js "></script>
+		<!-- BOOTSTRAP JS -->
+		<script src="../static/js/bootstrap/bootstrap.min.js "></script>
 
-			<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-			<script src="../static/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js "></script>
+		<!-- JQUERY VALIDATE -->
+		<script src="../static/js/plugin/jquery-validate/jquery.validate.min.js "></script>
 
-			<!-- BOOTSTRAP JS -->
-			<script src="../static/js/bootstrap/bootstrap.min.js "></script>
+		<!-- browser msie issue fix -->
+		<script src="../static/js/plugin/msie-fix/jquery.mb.browser.min.js "></script>
 
-			<!-- CUSTOM NOTIFICATION -->
-			<script src="../static/js/notification/SmartNotification.min.js "></script>
+		<!-- FastClick: For mobile devices -->
+		<script src="../static/js/plugin/fastclick/fastclick.min.js "></script>
 
-			<!-- JARVIS WIDGETS -->
-			<script src="../static/js/smartwidgets/jarvis.widget.min.js "></script>
+		<!-- MAIN APP JS FILE -->
+		<script src="../static/js/app.min.js "></script>
 
-			<!-- EASY PIE CHARTS -->
-			<script src="../static/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js "></script>
+		<!-- map -->
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1XjLLEhZhQNUzd93EjU5nOGQ"></script>
 
-			<!-- SPARKLINES -->
-			<script src="../static/js/plugin/sparkline/jquery.sparkline.min.js "></script>
+		<script src="../static/js/echarts.min.js "></script>
 
-			<!-- JQUERY VALIDATE -->
-			<script src="../static/js/plugin/jquery-validate/jquery.validate.min.js "></script>
+		<!-- import my js -->
+		<script src="../static/js/page/trajectory.js"></script>
 
-			<!-- JQUERY MASKED INPUT -->
-			<script src="../static/js/plugin/masked-input/jquery.maskedinput.min.js "></script>
+		<script>
+			$(document).ready(function() {
 
-			<!-- JQUERY SELECT2 INPUT -->
-			<script src="../static/js/plugin/select2/select2.min.js "></script>
+				// DO NOT REMOVE : GLOBAL FUNCTIONS!
+				pageSetUp();
+			});
+		</script>
 
-			<!-- JQUERY UI + Bootstrap Slider -->
-			<script src="../static/js/plugin/bootstrap-slider/bootstrap-slider.min.js "></script>
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+			_gaq.push(['_trackPageview']);
 
-			<!-- browser msie issue fix -->
-			<script src="../static/js/plugin/msie-fix/jquery.mb.browser.min.js "></script>
-
-			<!-- FastClick: For mobile devices -->
-			<script src="../static/js/plugin/fastclick/fastclick.min.js "></script>
-
-			<!--[if IE 8]>
-
-		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-		<![endif]-->
-
-			<!-- Demo purpose only -->
-			<script src="../static/js/demo.min.js "></script>
-
-			<!-- MAIN APP JS FILE -->
-			<script src="../static/js/app.min.js "></script>
-
-			<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-			<!-- Voice command : plugin -->
-			<script src="../static/js/speech/voicecommand.min.js "></script>
-
-			<!-- SmartChat UI : plugin -->
-			<script src="../static/js/smart-chat-ui/smart.chat.ui.min.js "></script>
-			<script src="../static/js/smart-chat-ui/smart.chat.manager.min.js "></script>
-
-			<!-- PAGE RELATED PLUGIN(S) -->
-
-			<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
-			<script src="../static/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js "></script>
-			<script src="../static/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js "></script>
-
-			<script>
-				$(document).ready(function() {
-
-					// DO NOT REMOVE : GLOBAL FUNCTIONS!
-					pageSetUp();
-				});
-			</script>
-
-			<!-- Your GOOGLE ANALYTICS CODE Below -->
-			<script type="text/javascript">
-				var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-				_gaq.push(['_trackPageview']);
-
-				(function() {
-					var ga = document.createElement('script');
-					ga.type = 'text/javascript';
-					ga.async = true;
-					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-					var s = document.getElementsByTagName('script')[0];
-					s.parentNode.insertBefore(ga, s);
-				})();
-			</script>
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
 
 	</body>
 

@@ -1,0 +1,75 @@
+.carousel-inner {
+	height: 350px;
+	width: 600px;
+}
+
+/******租赁时长********/
+#myCarousel {
+	height: 360px;
+	margin: 5px;
+}
+
+#rtl-changzu {
+	height: inherit;
+	width: inherit;
+}
+
+#rtl-duanzu {
+	height: inherit;
+	width: inherit;
+}
+
+#rtl-fenshi {
+	height: inherit;
+	width: inherit;
+}
+
+
+/******使用强度********/
+#myCarousel2 {
+	height: 360px;
+	margin: 5px;
+}
+
+#useIntensity-weekday {
+	height: inherit;
+	width: inherit;
+}
+
+#useIntensity-weekend {
+	height: inherit;
+	width: inherit;
+}
+
+/******日均行驶时间********/
+#myCarousel3 {
+	height: 360px;
+	margin: 5px;
+}
+
+#averageMileage-weekday {
+	height: inherit;
+	width: inherit;
+}
+
+#averageMileage-weekend {
+	height: inherit;
+	width: inherit;
+}
+
+
+/******出行时间********/
+#myCarousel4 {
+	height: 360px;
+	margin: 5px;
+}
+
+#travelTime-weekday {
+	height: inherit;
+	width: inherit;
+}
+
+#travelTime-weekend {
+	height: inherit;
+	width: inherit;
+}
