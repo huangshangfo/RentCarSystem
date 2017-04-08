@@ -31,7 +31,7 @@
         </javaClientGenerator>
         
         <!--生成对应表及类名-->
-        <table tableName="contract_overview" domainObjectName="Contract"
+        <!-- <table tableName="contract_overview" domainObjectName="Contract"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
@@ -44,6 +44,27 @@
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">     
-        </table> 
+        </table> --> 
+        <!-- <table tableName="company" domainObjectName="Company"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">     
+        </table>
+        <table tableName="vehicle_company" domainObjectName="VehicleCompany"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">     
+        </table> -->
+        <table tableName="vehicle_gps" domainObjectName="VehicleGPS"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">     
+        </table>
     </context>
 </generatorConfiguration>

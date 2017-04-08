@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.easycar.dao.VehicleCompanyMapper">
+	<resultMap id="BaseResultMap" type="com.cn.easycar.model.VehicleCompany">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="zulinId" jdbcType="VARCHAR" property="zulinid" />
+		<result column="plateNumber" jdbcType="VARCHAR" property="platenumber" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, zulinId, plateNumber
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from vehicle_company
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from vehicle_company
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.cn.easycar.model.VehicleCompany">
+		insert into vehicle_company (id, zulinId, plateNumber
+		)
+		values (#{id,jdbcType=INTEGER}, #{zulinid,jdbcType=VARCHAR},
+		#{platenumber,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.cn.easycar.model.VehicleCompany">
+		insert into vehicle_company
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="zulinid != null">
+				zulinId,
+			</if>
+			<if test="platenumber != null">
+				plateNumber,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="zulinid != null">
+				#{zulinid,jdbcType=VARCHAR},
+			</if>
+			<if test="platenumber != null">
+				#{platenumber,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.cn.easycar.model.VehicleCompany">
+		update vehicle_company
+		<set>
+			<if test="zulinid != null">
+				zulinId = #{zulinid,jdbcType=VARCHAR},
+			</if>
+			<if test="platenumber != null">
+				plateNumber = #{platenumber,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.cn.easycar.model.VehicleCompany">
+		update vehicle_company
+		set zulinId = #{zulinid,jdbcType=VARCHAR},
+		plateNumber = #{platenumber,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<insert id="batchInsert" parameterType="java.util.List">
+		<selectKey resultType="int" keyProperty="id" order="AFTER">  
+        	SELECT  
+        	LAST_INSERT_ID()  
+    	</selectKey> 
+		insert into vehicle_company (zulinId,plateNumber)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.zulinid,jdbcType=VARCHAR},#{item.platenumber,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+</mapper>
