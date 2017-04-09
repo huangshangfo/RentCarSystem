@@ -18,4 +18,6 @@ public interface CompanyMapper {
     int updateByPrimaryKey(Company record);
     
     List<String> selectAllZulinIds(); //获取所有公司的租赁id
+    
+    int selectIdByPlateNumber(String plateNumber);
 }

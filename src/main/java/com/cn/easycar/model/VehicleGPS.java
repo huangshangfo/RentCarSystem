@@ -1,7 +1,5 @@
 package com.cn.easycar.model;
 
-import java.math.BigDecimal;
-
 public class VehicleGPS {
     private Integer id;
 
@@ -9,9 +7,9 @@ public class VehicleGPS {
 
     private String platenumber;
 
-    private BigDecimal lng;
+    private Double lng;
 
-    private BigDecimal lat;
+    private Double lat;
 
     public Integer getId() {
         return id;
@@ -37,19 +35,19 @@ public class VehicleGPS {
         this.platenumber = platenumber == null ? null : platenumber.trim();
     }
 
-    public BigDecimal getLng() {
+    public Double getLng() {
         return lng;
     }
 
-    public void setLng(BigDecimal lng) {
+    public void setLng(Double lng) {
         this.lng = lng;
     }
 
-    public BigDecimal getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(BigDecimal lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 }

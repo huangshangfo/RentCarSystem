@@ -81,4 +81,8 @@
 			(#{item.zulinid,jdbcType=VARCHAR},#{item.platenumber,jdbcType=VARCHAR})
 		</foreach>
 	</insert>
+	<select id="selectAllPlateNumber" resultType="java.lang.String">
+		select plateNumber
+		from vehicle_company
+	</select>
 </mapper>

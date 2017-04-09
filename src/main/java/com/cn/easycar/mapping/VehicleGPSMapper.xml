@@ -5,8 +5,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="date" jdbcType="VARCHAR" property="date" />
     <result column="plateNumber" jdbcType="VARCHAR" property="platenumber" />
-    <result column="lng" jdbcType="DECIMAL" property="lng" />
-    <result column="lat" jdbcType="DECIMAL" property="lat" />
+    <result column="lng" jdbcType="DOUBLE" property="lng" />
+    <result column="lat" jdbcType="DOUBLE" property="lat" />
   </resultMap>
   <sql id="Base_Column_List">
     id, date, plateNumber, lng, lat
@@ -25,7 +25,7 @@
     insert into vehicle_gps (id, date, plateNumber, 
       lng, lat)
     values (#{id,jdbcType=INTEGER}, #{date,jdbcType=VARCHAR}, #{platenumber,jdbcType=VARCHAR}, 
-      #{lng,jdbcType=DECIMAL}, #{lat,jdbcType=DECIMAL})
+      #{lng,jdbcType=DOUBLE}, #{lat,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="com.cn.easycar.model.VehicleGPS">
     insert into vehicle_gps
@@ -57,10 +57,10 @@
         #{platenumber,jdbcType=VARCHAR},
       </if>
       <if test="lng != null">
-        #{lng,jdbcType=DECIMAL},
+        #{lng,jdbcType=DOUBLE},
       </if>
       <if test="lat != null">
-        #{lat,jdbcType=DECIMAL},
+        #{lat,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
@@ -74,10 +74,10 @@
         plateNumber = #{platenumber,jdbcType=VARCHAR},
       </if>
       <if test="lng != null">
-        lng = #{lng,jdbcType=DECIMAL},
+        lng = #{lng,jdbcType=DOUBLE},
       </if>
       <if test="lat != null">
-        lat = #{lat,jdbcType=DECIMAL},
+        lat = #{lat,jdbcType=DOUBLE},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -86,8 +86,32 @@
     update vehicle_gps
     set date = #{date,jdbcType=VARCHAR},
       plateNumber = #{platenumber,jdbcType=VARCHAR},
-      lng = #{lng,jdbcType=DECIMAL},
-      lat = #{lat,jdbcType=DECIMAL}
+      lng = #{lng,jdbcType=DOUBLE},
+      lat = #{lat,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <insert id="batchInsert" parameterType="java.util.List">
+		<selectKey resultType="int" keyProperty="id" order="AFTER">  
+        	SELECT  
+        	LAST_INSERT_ID()  
+    	</selectKey> 
+		insert into vehicle_gps (date,plateNumber,lng,lat)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.date,jdbcType=VARCHAR},#{item.platenumber,jdbcType=VARCHAR},#{item.lng,jdbcType=DOUBLE},#{item.lat,jdbcType=DOUBLE})
+		</foreach>
+	</insert>
+	<select id="selectByDate" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" /> 
+    from vehicle_gps
+    where date = #{date,jdbcType=VARCHAR}
+    order by id
+  	</select>
+  	<select id="selectPlateNumberByDate" parameterType="java.lang.String" resultType="java.lang.String">
+    select plateNumber
+    from vehicle_gps
+    where date = #{date,jdbcType=VARCHAR}
+    order by id
+  	</select>
 </mapper>

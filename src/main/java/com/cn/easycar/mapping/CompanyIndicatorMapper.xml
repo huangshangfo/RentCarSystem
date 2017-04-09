@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.easycar.dao.CompanyIndicatorMapper">
+  <resultMap id="BaseResultMap" type="com.cn.easycar.model.CompanyIndicator">
+    <id column="comId" jdbcType="INTEGER" property="comid" />
+    <result column="repeatRate" jdbcType="REAL" property="repeatrate" />
+    <result column="highActiveRate" jdbcType="REAL" property="highactiverate" />
+    <result column="gpsDensity" jdbcType="REAL" property="gpsdensity" />
+    <result column="dailyDiffRate" jdbcType="REAL" property="dailydiffrate" />
+    <result column="wrongGpsRate" jdbcType="REAL" property="wronggpsrate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    comId, repeatRate, highActiveRate, gpsDensity, dailyDiffRate, wrongGpsRate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from company_indicator
+    where comId = #{comid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from company_indicator
+    where comId = #{comid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.easycar.model.CompanyIndicator">
+    insert into company_indicator (comId, repeatRate, highActiveRate, 
+      gpsDensity, dailyDiffRate, wrongGpsRate
+      )
+    values (#{comid,jdbcType=INTEGER}, #{repeatrate,jdbcType=REAL}, #{highactiverate,jdbcType=REAL}, 
+      #{gpsdensity,jdbcType=REAL}, #{dailydiffrate,jdbcType=REAL}, #{wronggpsrate,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.easycar.model.CompanyIndicator">
+    insert into company_indicator
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comid != null">
+        comId,
+      </if>
+      <if test="repeatrate != null">
+        repeatRate,
+      </if>
+      <if test="highactiverate != null">
+        highActiveRate,
+      </if>
+      <if test="gpsdensity != null">
+        gpsDensity,
+      </if>
+      <if test="dailydiffrate != null">
+        dailyDiffRate,
+      </if>
+      <if test="wronggpsrate != null">
+        wrongGpsRate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="comid != null">
+        #{comid,jdbcType=INTEGER},
+      </if>
+      <if test="repeatrate != null">
+        #{repeatrate,jdbcType=REAL},
+      </if>
+      <if test="highactiverate != null">
+        #{highactiverate,jdbcType=REAL},
+      </if>
+      <if test="gpsdensity != null">
+        #{gpsdensity,jdbcType=REAL},
+      </if>
+      <if test="dailydiffrate != null">
+        #{dailydiffrate,jdbcType=REAL},
+      </if>
+      <if test="wronggpsrate != null">
+        #{wronggpsrate,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.easycar.model.CompanyIndicator">
+    update company_indicator
+    <set>
+      <if test="repeatrate != null">
+        repeatRate = #{repeatrate,jdbcType=REAL},
+      </if>
+      <if test="highactiverate != null">
+        highActiveRate = #{highactiverate,jdbcType=REAL},
+      </if>
+      <if test="gpsdensity != null">
+        gpsDensity = #{gpsdensity,jdbcType=REAL},
+      </if>
+      <if test="dailydiffrate != null">
+        dailyDiffRate = #{dailydiffrate,jdbcType=REAL},
+      </if>
+      <if test="wronggpsrate != null">
+        wrongGpsRate = #{wronggpsrate,jdbcType=REAL},
+      </if>
+    </set>
+    where comId = #{comid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.easycar.model.CompanyIndicator">
+    update company_indicator
+    set repeatRate = #{repeatrate,jdbcType=REAL},
+      highActiveRate = #{highactiverate,jdbcType=REAL},
+      gpsDensity = #{gpsdensity,jdbcType=REAL},
+      dailyDiffRate = #{dailydiffrate,jdbcType=REAL},
+      wrongGpsRate = #{wronggpsrate,jdbcType=REAL}
+    where comId = #{comid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -17,6 +17,9 @@ public interface VehicleCompanyMapper {
 
     int updateByPrimaryKey(VehicleCompany record);
     
+    //获取所有车牌号
+    List<String> selectAllPlateNumber();
+    
     //批量插入
     int batchInsert(List<VehicleCompany> vcL);
 }
