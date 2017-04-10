@@ -23,10 +23,6 @@
 		<!-- SmartAdmin RTL Support  -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/smartadmin-rtl.min.css">
 
-		<!-- We recommend you use "your_style.css" to override SmartAdmin
-		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/your_style.css"> -->
-
 		<!-- My style css -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/my_style.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/page/trajectory.css">
@@ -157,39 +153,51 @@
 					<div id="choose-data">
 						<div id="data-quality">
 							<h3>GPS数据质量</h3>
+							<fieldset>
+								<form class="smart-form">
+									<label class="label" style="color:lightcoral">评价指标</label>
+									<label class="toggle">
+									<input type="checkbox" name="indicator" value="repeatRate" checked="checked">
+									<i data-swchon-text="ON" data-swchoff-text="OFF"></i>重复率</label>
+									<label class="toggle">
+									<input type="checkbox" name="indicator" value="highActiveRate">
+									<i data-swchon-text="ON" data-swchoff-text="OFF"></i>高频活跃车辆比</label>
+									<label class="toggle">
+									<input type="checkbox" name="indicator" value="gpsDensity">
+									<i data-swchon-text="ON" data-swchoff-text="OFF"></i>GPS密度</label>
+								</form>
+							</fieldset>
+							<br />
 							<div class="form-group" id="myForm1">
-								<label>TOP5 优质公司</label>
+								<label>公司数据质量（Top5）</label>
+								<form class="smart-form">
+									<div class="inline-group">
+										<label class="radio">
+										<input type="radio" name="quality" value=1 checked="checked">
+										<i></i>优质</label>
+										<label class="radio">
+										<input type="radio" name="quality" value=2>
+										<i></i>劣质</label>
+									</div>
+								</form>
 								<select class="form-control" id="select-1">
-									<option>公司1</option>
-									<option>公司2</option>
-									<option>公司3</option>
-									<option>公司4</option>
-									<option>公司5</option>
-								</select>
-								<br /><br />
-
-								<label>TOP5 劣质公司</label>
-								<select class="form-control" id="select-1">
-									<option>公司1</option>
-									<option>公司2</option>
-									<option>公司3</option>
-									<option>公司4</option>
-									<option>公司5</option>
 								</select>
 							</div>
 						</div>
 						<div id="base-info">
+							<h3>查看GPS</h3>
 							<div class="form-group" id="myForm2">
 								<label>请选择日期:</label>
 								<div class="input-group">
-									<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="dd/mm/yy">
+									<input type="text" name="mydate" placeholder="Select a date" class="form-control datepicker" data-dateformat="yy-mm-dd">
 									<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 								</div>
 								<br />
 
 								<label>请选择车辆:</label>
 								<div>
-									<select class="form-control" id="select-1">
+									<select class="form-control" id="select-2">
+										<option value='' disabled selected style='display:none;'>Select a car</option>  
 										<option>车辆1</option>
 										<option>车辆2</option>
 										<option>车辆3</option>
@@ -201,8 +209,10 @@
 						</div>
 					</div>
 					<div id="param">
-						<h3>参数指标</h3>
-						<pre>重复数据上传数占比:    高频活跃车辆数占比:    日传输数据相对差:    位置信息错误占比:    数据密度:</pre>
+						<!-- <pre>重复数据上传数占比:              高频活跃车辆数占比:              数据密度:</pre> -->
+						<div id="paramContent">
+							<b>重复数据上传数占比：</b><b id="repeat_rate"></b>&nbsp;&nbsp;<b>高频活跃车辆数占比:</b><b id="high_active"></b>&nbsp;&nbsp;<b>高频活跃车辆数占比:</b><b id="gps_density"></b>
+						</div>
 					</div>
 				</div>
 			</div>

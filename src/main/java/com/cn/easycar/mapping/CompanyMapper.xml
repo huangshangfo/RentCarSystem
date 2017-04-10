@@ -89,4 +89,11 @@
 		where
 		vehicle_company.plateNumber=#{plateNumber,jdbcType=VARCHAR} limit 1)
 	</select>
+	<select id="selectCompanyName" parameterType="java.lang.Integer"
+		resultType="java.lang.String">
+		select name
+		from company
+		where id = #{id,jdbcType=INTEGER}
+		limit 1
+	</select>
 </mapper>

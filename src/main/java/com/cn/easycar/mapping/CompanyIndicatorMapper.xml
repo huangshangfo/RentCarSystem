@@ -103,4 +103,21 @@
       wrongGpsRate = #{wronggpsrate,jdbcType=REAL}
     where comId = #{comid,jdbcType=INTEGER}
   </update>
+  <select id="selectAllCompanyIndicators" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from company_indicator
+  </select>
+  <select id="selectCompanyIndicators" parameterType="java.lang.String" resultMap="BaseResultMap" statementType="STATEMENT">
+    select 
+    <include refid="Base_Column_List" />
+    from company_indicator
+    order by ${indicator}
+  </select>
+  <select id="selectCompanyIndicatorsDesc" parameterType="java.lang.String" resultMap="BaseResultMap" statementType="STATEMENT">
+    select 
+    <include refid="Base_Column_List" />
+    from company_indicator
+    order by ${indicator} desc
+  </select>
 </mapper>

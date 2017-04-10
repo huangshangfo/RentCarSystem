@@ -26,8 +26,12 @@ public class StoreInfo {
 	public static void main(String[] args) throws Exception {
 		// storeVehicleCommpany(); //存车牌号-公司id
 		//storeVehicleGps(); //存车辆-gps数据
-		Statistics(); //统计参数指标
-		
+		//Statistics(); //统计参数指标
+		/*CompanyIndicatorMapper companyIndicatorMapper=(CompanyIndicatorMapper) ac.getBean("companyIndicatorMapper");
+		List<CompanyIndicator> ciL=companyIndicatorMapper.selectCompanyIndicators("repeatRate");
+		for (CompanyIndicator companyIndicator : ciL) {
+			System.out.println(companyIndicator.getRepeatrate());
+		}*/
 	}
 
 	// 存车牌号-公司id

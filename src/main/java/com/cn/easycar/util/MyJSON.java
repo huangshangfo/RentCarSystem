@@ -18,7 +18,8 @@ public class MyJSON{
 		String message = "";
 		switch(status){
 			case 0 : message = "request failed!";break;
-			case 1: ; break;
+			case 1: message = "request succeed!"; break;
+			case 500: message = "nothing gained!"; break;
 		}
 		
 		return message;
