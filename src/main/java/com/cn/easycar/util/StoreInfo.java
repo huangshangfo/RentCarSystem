@@ -25,7 +25,7 @@ public class StoreInfo {
 	
 	public static void main(String[] args) throws Exception {
 		// storeVehicleCommpany(); //存车牌号-公司id
-		//storeVehicleGps(); //存车辆-gps数据
+		storeVehicleGps(); //存车辆-gps数据
 		//Statistics(); //统计参数指标
 		/*CompanyIndicatorMapper companyIndicatorMapper=(CompanyIndicatorMapper) ac.getBean("companyIndicatorMapper");
 		List<CompanyIndicator> ciL=companyIndicatorMapper.selectCompanyIndicators("repeatRate");
@@ -95,6 +95,7 @@ public class StoreInfo {
 
 		VehicleCompanyMapper vehicleCompanyMapper = (VehicleCompanyMapper) ac.getBean("vehicleCompanyMapper");
 		VehicleGPSMapper vehicleGPSMapper = (VehicleGPSMapper) ac.getBean("vehicleGPSMapper");
+		CompanyMapper companyMapper = (CompanyMapper) ac.getBean("companyMapper");
 		
 		List<String> validPlateNumbers=vehicleCompanyMapper.selectAllPlateNumber(); //所有在数据库中存有的车牌号
 		
@@ -124,12 +125,14 @@ public class StoreInfo {
 					double lng=Double.parseDouble(content[7]); //经度
 					double lat=Double.parseDouble(content[8]); //纬度
 					Gps bdGps=Coordtransform.transform2Bd(lat,lng); //将普通GPS转换成百度坐标
+					int comId=companyMapper.selectIdByPlateNumber(plateNumber); //公司id
 					
 					VehicleGPS vg=new VehicleGPS();
 					vg.setDate(date);
 					vg.setPlatenumber(plateNumber);
 					vg.setLng(bdGps.getWgLon());
 					vg.setLat(bdGps.getWgLat());
+					vg.setComid(comId);
 					vgL.add(vg);
 				}
 				vehicleGPSMapper.batchInsert(vgL); //插入一天的vehicleGPs

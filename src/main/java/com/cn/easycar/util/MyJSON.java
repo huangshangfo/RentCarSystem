@@ -20,6 +20,7 @@ public class MyJSON{
 			case 0 : message = "request failed!";break;
 			case 1: message = "request succeed!"; break;
 			case 500: message = "nothing gained!"; break;
+			case 501: message = "wrong parameter!"; break;
 		}
 		
 		return message;

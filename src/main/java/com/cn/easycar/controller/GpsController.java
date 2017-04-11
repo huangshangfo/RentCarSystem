@@ -1,5 +1,7 @@
 package com.cn.easycar.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cn.easycar.model.CompanyIndicator;
 import com.cn.easycar.model.CompanyParam;
+import com.cn.easycar.model.VehicleGPS;
 import com.cn.easycar.service.IGpsService;
 import com.cn.easycar.util.MyJSON;
 
@@ -24,6 +27,7 @@ public class GpsController {
 	@Resource
 	private IGpsService gpsService;
 
+	//获取公司接口
 	@RequestMapping(value = "/companys", method = RequestMethod.GET)
 	public @ResponseBody String getIndicators(String indicators) {
 		if(indicators.trim().isEmpty()){
@@ -84,6 +88,51 @@ public class GpsController {
 			return MyJSON.toJSON("", 0);
 	}
 
+	//获取车辆车牌号接口
+	@RequestMapping(value = "/vehicles", method = RequestMethod.GET)
+	public @ResponseBody String getVehicles(String company,String date) throws UnsupportedEncodingException{
+		if(company.isEmpty()||date.isEmpty())
+			return MyJSON.toJSON("", 501);
+		company=new String(company.getBytes("ISO-8859-1"),"UTF-8"); 
+		List<String> vehicleL=new ArrayList<String>();
+		vehicleL=gpsService.getVehicles(company, date);
+		
+		if (!vehicleL.isEmpty())
+			return MyJSON.toJSON(vehicleL, 1);
+		else
+			return MyJSON.toJSON("", 0);
+	}
+	
+	//获取某辆车某天的GPS
+	@RequestMapping(value = "/gps", method = RequestMethod.GET)
+	public @ResponseBody String getGps(String plateNumber,String date) throws UnsupportedEncodingException{
+		if(plateNumber.isEmpty()||date.isEmpty())
+			return MyJSON.toJSON("", 501);
+		plateNumber=new String(plateNumber.getBytes("ISO-8859-1"),"UTF-8");  //防止中文乱码
+		List<VehicleGPS> vehicleGPSL=new ArrayList<VehicleGPS>();
+		vehicleGPSL=gpsService.getGps(plateNumber, date);
+		
+		if (!vehicleGPSL.isEmpty())
+			return MyJSON.toJSON(vehicleGPSL, 1);
+		else
+			return MyJSON.toJSON("", 0);
+	}
+	
+	//获取某公司有gps的日期
+	@RequestMapping(value = "/date", method = RequestMethod.GET)
+	public @ResponseBody String getDate(String company) throws UnsupportedEncodingException{
+		if(company.isEmpty())
+			return MyJSON.toJSON("", 501);
+		company=new String(company.getBytes("ISO-8859-1"),"UTF-8"); 
+		List<String> dateL=new ArrayList<String>();
+		dateL=gpsService.getDates(company);
+		
+		if (!dateL.isEmpty())
+			return MyJSON.toJSON(dateL, 1);
+		else
+			return MyJSON.toJSON("", 0);
+	}
+	
 	// 找到Map中对应最大值的Key
 	public int getKeyOfMaxValue(Map<Integer, Integer> map) {
 		int max = -1;

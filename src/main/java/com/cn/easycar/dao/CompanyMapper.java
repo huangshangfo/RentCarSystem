@@ -2,6 +2,8 @@ package com.cn.easycar.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.cn.easycar.model.Company;
 
 public interface CompanyMapper {
@@ -22,4 +24,6 @@ public interface CompanyMapper {
     int selectIdByPlateNumber(String plateNumber);
     
     String selectCompanyName(Integer id);
+    
+    int selectIdByCompanyName(@Param("name")String company);
 }

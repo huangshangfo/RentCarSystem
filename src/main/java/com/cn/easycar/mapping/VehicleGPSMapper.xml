@@ -1,117 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.easycar.dao.VehicleGPSMapper">
-  <resultMap id="BaseResultMap" type="com.cn.easycar.model.VehicleGPS">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="date" jdbcType="VARCHAR" property="date" />
-    <result column="plateNumber" jdbcType="VARCHAR" property="platenumber" />
-    <result column="lng" jdbcType="DOUBLE" property="lng" />
-    <result column="lat" jdbcType="DOUBLE" property="lat" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, date, plateNumber, lng, lat
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from vehicle_gps
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from vehicle_gps
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.cn.easycar.model.VehicleGPS">
-    insert into vehicle_gps (id, date, plateNumber, 
-      lng, lat)
-    values (#{id,jdbcType=INTEGER}, #{date,jdbcType=VARCHAR}, #{platenumber,jdbcType=VARCHAR}, 
-      #{lng,jdbcType=DOUBLE}, #{lat,jdbcType=DOUBLE})
-  </insert>
-  <insert id="insertSelective" parameterType="com.cn.easycar.model.VehicleGPS">
-    insert into vehicle_gps
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="date != null">
-        date,
-      </if>
-      <if test="platenumber != null">
-        plateNumber,
-      </if>
-      <if test="lng != null">
-        lng,
-      </if>
-      <if test="lat != null">
-        lat,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="date != null">
-        #{date,jdbcType=VARCHAR},
-      </if>
-      <if test="platenumber != null">
-        #{platenumber,jdbcType=VARCHAR},
-      </if>
-      <if test="lng != null">
-        #{lng,jdbcType=DOUBLE},
-      </if>
-      <if test="lat != null">
-        #{lat,jdbcType=DOUBLE},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cn.easycar.model.VehicleGPS">
-    update vehicle_gps
-    <set>
-      <if test="date != null">
-        date = #{date,jdbcType=VARCHAR},
-      </if>
-      <if test="platenumber != null">
-        plateNumber = #{platenumber,jdbcType=VARCHAR},
-      </if>
-      <if test="lng != null">
-        lng = #{lng,jdbcType=DOUBLE},
-      </if>
-      <if test="lat != null">
-        lat = #{lat,jdbcType=DOUBLE},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.cn.easycar.model.VehicleGPS">
-    update vehicle_gps
-    set date = #{date,jdbcType=VARCHAR},
-      plateNumber = #{platenumber,jdbcType=VARCHAR},
-      lng = #{lng,jdbcType=DOUBLE},
-      lat = #{lat,jdbcType=DOUBLE}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <insert id="batchInsert" parameterType="java.util.List">
-		<selectKey resultType="int" keyProperty="id" order="AFTER">  
-        	SELECT  
-        	LAST_INSERT_ID()  
-    	</selectKey> 
-		insert into vehicle_gps (date,plateNumber,lng,lat)
+	<resultMap id="BaseResultMap" type="com.cn.easycar.model.VehicleGPS">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="date" jdbcType="VARCHAR" property="date" />
+		<result column="plateNumber" jdbcType="VARCHAR" property="platenumber" />
+		<result column="lng" jdbcType="DOUBLE" property="lng" />
+		<result column="lat" jdbcType="DOUBLE" property="lat" />
+		<result column="comId" jdbcType="INTEGER" property="comid" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, date, plateNumber, lng, lat, comId
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from vehicle_gps
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		vehicle_gps
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.cn.easycar.model.VehicleGPS">
+		insert into vehicle_gps (id,
+		date, plateNumber,
+		lng, lat, comId)
+		values (#{id,jdbcType=INTEGER},
+		#{date,jdbcType=VARCHAR},
+		#{platenumber,jdbcType=VARCHAR},
+		#{lng,jdbcType=DOUBLE}, #{lat,jdbcType=DOUBLE},
+		#{comid,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="com.cn.easycar.model.VehicleGPS">
+		insert into vehicle_gps
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="date != null">
+				date,
+			</if>
+			<if test="platenumber != null">
+				plateNumber,
+			</if>
+			<if test="lng != null">
+				lng,
+			</if>
+			<if test="lat != null">
+				lat,
+			</if>
+			<if test="comid != null">
+				comId,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="date != null">
+				#{date,jdbcType=VARCHAR},
+			</if>
+			<if test="platenumber != null">
+				#{platenumber,jdbcType=VARCHAR},
+			</if>
+			<if test="lng != null">
+				#{lng,jdbcType=DOUBLE},
+			</if>
+			<if test="lat != null">
+				#{lat,jdbcType=DOUBLE},
+			</if>
+			<if test="comid != null">
+				#{comid,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.cn.easycar.model.VehicleGPS">
+		update vehicle_gps
+		<set>
+			<if test="date != null">
+				date = #{date,jdbcType=VARCHAR},
+			</if>
+			<if test="platenumber != null">
+				plateNumber = #{platenumber,jdbcType=VARCHAR},
+			</if>
+			<if test="lng != null">
+				lng = #{lng,jdbcType=DOUBLE},
+			</if>
+			<if test="lat != null">
+				lat = #{lat,jdbcType=DOUBLE},
+			</if>
+			<if test="comid != null">
+				comId = #{comid,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.cn.easycar.model.VehicleGPS">
+		update vehicle_gps
+		set date = #{date,jdbcType=VARCHAR},
+		plateNumber =
+		#{platenumber,jdbcType=VARCHAR},
+		lng = #{lng,jdbcType=DOUBLE},
+		lat =
+		#{lat,jdbcType=DOUBLE},
+		comId = #{comid,jdbcType=INTEGER}
+		where id =
+		#{id,jdbcType=INTEGER}
+	</update>
+	<insert id="batchInsert" parameterType="java.util.List">
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+		insert into vehicle_gps (date,plateNumber,lng,lat,comId)
 		values
-		<foreach collection="list" item="item" index="index" separator=",">
-			(#{item.date,jdbcType=VARCHAR},#{item.platenumber,jdbcType=VARCHAR},#{item.lng,jdbcType=DOUBLE},#{item.lat,jdbcType=DOUBLE})
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.date,jdbcType=VARCHAR},#{item.platenumber,jdbcType=VARCHAR},#{item.lng,jdbcType=DOUBLE},#{item.lat,jdbcType=DOUBLE},#{item.comid,jdbcType=INTEGER})
 		</foreach>
 	</insert>
-	<select id="selectByDate" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" /> 
-    from vehicle_gps
-    where date = #{date,jdbcType=VARCHAR}
-    order by id
-  	</select>
-  	<select id="selectPlateNumberByDate" parameterType="java.lang.String" resultType="java.lang.String">
-    select plateNumber
-    from vehicle_gps
-    where date = #{date,jdbcType=VARCHAR}
-    order by id
-  	</select>
+	<select id="selectByDate" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from vehicle_gps
+		where date = #{date,jdbcType=VARCHAR}
+		order by id
+	</select>
+	<select id="selectPlateNumberByDate" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		select plateNumber
+		from vehicle_gps
+		where date = #{date,jdbcType=VARCHAR}
+		order by id
+	</select>
+	<select id="selectPlateNumberByCIdDate" resultType="java.lang.String">
+		select distinct plateNumber
+		from vehicle_gps
+		where date = #{date,jdbcType=VARCHAR} and comId = #{comid,jdbcType=INTEGER}
+	</select>
+	<select id="selectByPlateNumberDate" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from vehicle_gps
+		where date = #{date,jdbcType=VARCHAR} and plateNumber = #{platenumber,jdbcType=VARCHAR}
+		order by id
+	</select>
+	<select id="selectDateByComId" resultType="java.lang.String">
+		select distinct date
+		from vehicle_gps
+		where comId = #{comid,jdbcType=INTEGER}
+		order by id
+	</select>
 </mapper>

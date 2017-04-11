@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/material-design-icons/Material-Design-Icons.eot);
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../fonts/material-design-icons/Material-Design-Icons.eot?#iefix) format("embedded-opentype"),
+       url(../fonts/material-design-icons/Material-Design-Icons.woff2) format("woff2"),
+       url(../fonts/material-design-icons/Material-Design-Icons.woff) format("woff"),
+       url(../fonts/material-design-icons/Material-Design-Icons.ttf) format("truetype"),
+       url(../fonts/material-design-icons/Material-Design-Icons.svg#Material-Design-Icons) format("svg");
+}
+
+.material-icons {
+  font-family: 'Material Icons' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variant-ligatures: no-common-ligatures;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+     -moz-font-smoothing: antialiased;
+      -ms-font-smoothing: antialiased;
+       -o-font-smoothing: antialiased;
+          font-smoothing: antialiased;
+  -webkit-text-rendering: optimizeLegibility;
+     -moz-text-rendering: optimizeLegibility;
+      -ms-text-rendering: optimizeLegibility;
+       -o-text-rendering: optimizeLegibility;
+          text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: 'liga';
+     -moz-font-feature-settings: 'liga';
+      -ms-font-feature-settings: 'liga'; 
+       -o-font-feature-settings: 'liga'; 
+          font-feature-settings: 'liga';
+}

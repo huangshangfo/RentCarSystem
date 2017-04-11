@@ -59,19 +59,19 @@
                enableSelectByExample="false"
                selectByExampleQueryId="false">     
         </table> -->
-        <!-- <table tableName="vehicle_gps" domainObjectName="VehicleGPS"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">     
-        </table> -->
-        <table tableName="company_indicator" domainObjectName="CompanyIndicator"
+        <table tableName="vehicle_gps" domainObjectName="VehicleGPS"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">     
         </table>
+        <!-- <table tableName="company_indicator" domainObjectName="CompanyIndicator"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">     
+        </table> -->
     </context>
 </generatorConfiguration>

@@ -11,6 +11,8 @@ public class VehicleGPS {
 
     private Double lat;
 
+    private Integer comid;
+
     public Integer getId() {
         return id;
     }
@@ -49,5 +51,13 @@ public class VehicleGPS {
 
     public void setLat(Double lat) {
         this.lat = lat;
+    }
+
+    public Integer getComid() {
+        return comid;
+    }
+
+    public void setComid(Integer comid) {
+        this.comid = comid;
     }
 }

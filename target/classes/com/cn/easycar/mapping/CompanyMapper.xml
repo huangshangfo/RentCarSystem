@@ -96,4 +96,11 @@
 		where id = #{id,jdbcType=INTEGER}
 		limit 1
 	</select>
+	<select id="selectIdByCompanyName" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select id
+		from company
+		where name = #{name,jdbcType=VARCHAR}
+		limit 1
+	</select>
 </mapper>
