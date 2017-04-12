@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en-us">
 
 	<head>
@@ -14,6 +14,7 @@
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/bootstrap-datetimepicker.min.css">
 
 		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
 		<link rel="stylesheet" type="text/css" media="screen" href="../static/css/smartadmin-production-plugins.min.css">
@@ -141,19 +142,42 @@
 
 		</header>
 		<!-- END HEADER -->
-
+		
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
-				<div id="show-od">
+				<div class="col-sm-10" id="map">
+					<div id="show-od">
+					</div>
+				</div>
+				<div class="col-sm-2" id="side">
+					<div class="form-group" id="myForm">
+						<label>请选择日期</label>
+						<div class="input-group date form_datetime" data-date="2016-10-01" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1">
+							<input class="form-control" id="text-date" size="16" type="text" value="2016-10-01" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+					</div>
+					<div class="sidebar" id="sidebar">
+						出发地top5:
+						<table cellspacing="15" id="tableO">
+						</table>
+						<br><br> 目的地top5:
+						<table cellspacing="15" id="tableD">
+						</table>
+						<br><br> 吞吐量top5:
+						<table cellspacing="15" id="tableT">
+						</table>
+					</div>
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
 
 		</div>
 		<!-- END MAIN PANEL -->
+		
 
 		<!-- PAGE FOOTER -->
 		<div class="page-footer ">
@@ -183,6 +207,8 @@
 
 		<!-- BOOTSTRAP JS -->
 		<script src="../static/js/bootstrap/bootstrap.min.js "></script>
+		<script src="../static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+		<script src="../static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.fr.js"></script>
 
 		<!-- JQUERY VALIDATE -->
 		<script src="../static/js/plugin/jquery-validate/jquery.validate.min.js "></script>
@@ -202,7 +228,13 @@
 		<script src="../static/assets/js/echarts.js"></script>
 
 		<!-- import my js-->
-		<script src="../static/data/od_demo.json"></script>
+		<script type="text/javascript" src="../static/assets/data/odmaxso.json"></script>
+		<script type="text/javascript" src="../static/assets/data/odmaxsd.json"></script>
+		<script type="text/javascript" src="../static/assets/data/odmaxss.json"></script>
+		<script type="text/javascript" src="../static/assets/data/odmaxssps.json"></script>
+		<script type="text/javascript" src="../static/assets/data/zones.json"></script>
+		
+		<script type="text/javascript" src="../static/assets/js/main.js"></script>
 		<script src="../static/js/page/od.js"></script>
 
 		<script>
@@ -210,6 +242,17 @@
 
 				// DO NOT REMOVE : GLOBAL FUNCTIONS!
 				pageSetUp();
+				//日期选择
+				$('.form_datetime').datetimepicker({
+					format: 'yyyy-mm-dd',
+					autoclose: true,
+					startView: 2,
+					minView: 2,
+					startDate: '2016-10-01',
+					endDate: '2016-10-31',
+					forceParse: false,
+					language: 'zh-CN'
+				});
 			});
 		</script>
 

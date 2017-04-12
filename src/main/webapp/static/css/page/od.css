@@ -1,4 +1,43 @@
+#content{
+	height: 800px;
+}
+#map{
+	height: 100%;
+	padding:0;
+}
 #show-od {
 	width: 100%;
-	height: 600px;
+	height: inherit;
+}
+
+#side{
+	background-color: rgba(10, 10, 10, 0.8);
+	height: 100%;
+}
+
+#myForm{
+	color: #fff;
+	font-size:20px;
+}
+
+#sidebar {
+	top: 5%;
+	right: 0;
+	width: 100%;
+	height: 700px;
+	color: #fff;
+	font-family:幼圆;
+	font-size:20px;
+	/*overflow-y: scroll;
+	position: absolute;
+	z-index: 200;
+	background-color: rgba(10, 10, 10, 0.8);*/
+}
+
+#sidebar table{
+	border-top:solid thin white;
+	width:100%;
+	color:white;
+	font-family:黑体;
+	font-size:18px;
 }

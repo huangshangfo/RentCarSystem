@@ -20,7 +20,7 @@
 	padding-top: 5px;
 	border-style: solid;
 	border-width: 0.5px;
-	border-color: transparent transparent grey transparent;
+	border-color: transparent transparent grey grey;
 }
 
 fieldset{
@@ -36,7 +36,7 @@ fieldset{
 	border-bottom: solid 0.5px grey;
 }
 
-#main-content h3 {
+h3 {
 	text-align: center;
 }
 
@@ -59,10 +59,17 @@ fieldset{
 	text-align: center;
 }
 
+pre{
+	font-size: 15px;
+	margin:30px;
+	background-color: transparent;
+	border: none;
+}
+
 table{
 	top: 15px;
 	background-color: transparent;
-	border:none;
+	border-color:red;
 }
 
 #my_th{
