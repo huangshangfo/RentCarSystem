@@ -74,7 +74,7 @@
 							<a href="dataprofiling.jsp">数据概况</a>
 						</li>
 						<li>
-							<a href="features.jsp">统计特征</a>
+							<a href="features.jsp">运行特征</a>
 						</li>
 						<li>
 							<a href="trajectory.jsp">质量分析</a>

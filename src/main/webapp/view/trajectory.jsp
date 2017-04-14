@@ -100,7 +100,7 @@
 			<div class="navbar-collapse collapse navbar-right scroll-me">
 				<ul class="nav navbar-nav ">
 					<li><a href="dataprofiling.jsp">数据概况</a></li>
-					<li><a href="features.jsp">统计特征</a></li>
+					<li><a href="features.jsp">运行特征</a></li>
 					<li class="active"><a href="trajectory.jsp">质量分析</a></li>
 					<li><a href="od.jsp">OD分析</a></li>
 				</ul>
