@@ -48,6 +48,10 @@ h3 {
 	height: 45%;
 }
 
+#base-info h3{
+	margin:10px;
+}
+
 #myForm2 {
 	margin: 10px;
 }
@@ -59,11 +63,8 @@ h3 {
 	text-align: center;
 }
 
-pre{
-	font-size: 15px;
-	margin:30px;
-	background-color: transparent;
-	border: none;
+label{
+	color:black;
 }
 
 table{

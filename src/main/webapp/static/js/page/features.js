@@ -149,13 +149,13 @@ useIntensityBarOption = {
 			myBar: {
 				show: true,
 				title: '切换为柱状图',
-				icon: 'image://img/bar.png',
+				icon: 'image://../static/img/bar.png',
 				onclick: changeToBar
 			},
 			myPie: {
 				show: true,
 				title: '切换为饼图',
-				icon: 'image://img/pie.png',
+				icon: 'image://../static/img/pie.png',
 				onclick: changeToPie
 			},
 			restore: {
@@ -240,13 +240,13 @@ useIntensityPieOption = {
 			myBar: {
 				show: true,
 				title: '切换为柱状图',
-				icon: 'image://img/bar.png',
+				icon: 'image://../static/img/bar.png',
 				onclick: changeToBar
 			},
 			myPie: {
 				show: true,
 				title: '切换为饼图',
-				icon: 'image://img/pie.png',
+				icon: 'image://../static/img/pie.png',
 				onclick: changeToPie
 			},
 			restore: {
@@ -269,7 +269,7 @@ useIntensityPieOption = {
 			radius: ['10%','30%'],
 			center: ['30%', '60%'],
 			markPoint:{
-				symbol:'image://img/changzu.png',
+				symbol:'image://../static/img/changzu.png',
 				symbolSize:30,
 				silent:true,
 				data:[{
@@ -302,7 +302,7 @@ useIntensityPieOption = {
 			radius: ['10%','30%'],
 			center: ['50%', '35%'],
 			markPoint:{
-				symbol:'image://img/duanzu.png',
+				symbol:'image://../static/img/duanzu.png',
 				symbolSize:30,
 				silent:true,
 				data:[{
@@ -335,7 +335,7 @@ useIntensityPieOption = {
 			radius: ['10%','30%'],
 			center: ['70%', '60%'],
 			markPoint:{
-				symbol:'image://img/fenshi.png',
+				symbol:'image://../static/img/fenshi.png',
 				symbolSize:30,
 				silent:true,
 				data:[{

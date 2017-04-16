@@ -146,8 +146,8 @@ echarts.util.each(data, function(item, index) {
 });
 optionGPS = {
 	title: {
-		text: '上传GPS车辆数',
-		subtext: '各租赁类型上传GPS的车辆数',
+		text: '各租赁类型车辆占比',
+		subtext: '三种租赁类型的车辆数占比情况',
 		x: 'center'
 	},
 	tooltip: {
@@ -389,11 +389,11 @@ for(var i = 1; i < 15; i++) {
 
 var pause = 0;
 var titles = ['暂停', '开始'];
-var images = ['image://img/pause.ico', 'image://img/start.ico'];
+var images = ['image://../static/img/pause.ico', 'image://../static/img/start.ico'];
 var timer;
 optionChange = {
 	title: {
-		text: 'GPS数据随时间变化曲线',
+		text: 'GPS数据量随时间变化曲线',
 		subtext: '各租赁类型车每天上传的GPS总量',
 		x: 'center'
 	},

@@ -193,10 +193,10 @@
 								<label class="label" style="color:lightcoral">评价指标</label> <label
 									class="toggle state-error"> <input type="checkbox"
 									name="indicator" value="repeatRate" checked="checked">
-									<i data-swchon-text="ON" data-swchoff-text="OFF"></i>重复率
+									<i data-swchon-text="ON" data-swchoff-text="OFF"></i>重复数据上传占比
 								</label> <label class="toggle state-error"> <input
 									type="checkbox" name="indicator" value="highActiveRate">
-									<i data-swchon-text="ON" data-swchoff-text="OFF"></i>高频活跃车辆比
+									<i data-swchon-text="ON" data-swchoff-text="OFF"></i>高频活跃车辆占比
 								</label> <label class="toggle state-error"> <input
 									type="checkbox" name="indicator" value="gpsDensity"> <i
 									data-swchon-text="ON" data-swchoff-text="OFF"></i>GPS密度
@@ -224,12 +224,14 @@
 						<h3>查看GPS</h3>
 						<div class="form-group" id="myForm2">
 							<div>
+								选择日期
 								<select class="form-control" id="date-select">
 								</select>
 							</div>
 							<br />
 
 							<div>
+								选择车牌号
 								<select class="form-control" id="select-2">
 									<!-- <option value='' disabled selected style='display:none;'>选择车辆</option> -->
 								</select>
@@ -256,9 +258,9 @@
 					<table class="col-sm-8 col-sm-offset-2">
 						<thead>
 							<tr>
-								<th id="my_th">重复数据上传数占比</th>
-								<th id="my_th">高频活跃车辆数占比</th>
-								<th id="my_th">数据密度</th>
+								<th id="my_th">重复数据上传占比</th>
+								<th id="my_th">高频活跃车辆占比</th>
+								<th id="my_th">GPS密度</th>
 							</tr>
 						</thead>
 						<tbody>
